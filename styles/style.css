@@ -1,0 +1,31 @@
+@font-face {
+    font-family: fifa;
+    src: url(./Football\ Attack\ Demo.ttf);
+}
+
+body {
+    background-image: url(https://images.squarespace-cdn.com/content/v1/54d39958e4b05da119ebf14c/1506234336319-2TXN2N3IPWNJUUNB6U4K/ke17ZwdGBToddI8pDm48kNvT88LknE-K9M4pGNO0Iqd7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1USOFn4xF8vTWDNAUBm5ducQhX-V3oVjSmr829Rco4W2Uo49ZdOtO_QXox0_W7i2zEA/fifa18_thunder.jpg?format=1500w);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position-y: top;
+}
+
+.hold {
+    border-radius: 5%;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 0 10px black, 0 0 20px black;
+}
+
+.title {
+    color: whitesmoke;
+    text-align: center;
+    font-size: 6rem;
+    font-family: fifa;
+    padding-top: 10%;
+    text-shadow: 0 0 10px black;
+    letter-spacing: 3pt;
+}
+
+.scrap {
+    margin-left: 13%;
+}
