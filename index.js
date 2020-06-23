@@ -7,6 +7,7 @@ const session = require('express-session');
 
 
 
+
 const app = express();
 
 
@@ -23,10 +24,6 @@ const db = require('./config/keys').mongoURI;
 mongoose.connect(db, { useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true })
     .then(() => {
         console.log('mongoose odm up and running!!')
-        mongoose.connection.db.listCollections().toArray(function(err, names) {
-            module.exports.Collection = names;
-
-        });
     })
     .catch(err => console.log(err));
 
@@ -70,6 +67,7 @@ app.use(function(req, res, next) {
 
 app.use('/', require('./routes/index.js'));
 app.use('/users', require('./routes/users.js'));
+app.use('/player', require('./routes/main.js'));
 
 
 
