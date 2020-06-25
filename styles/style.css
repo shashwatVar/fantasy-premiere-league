@@ -3,6 +3,24 @@
     src: url(./Football\ Attack\ Demo.ttf);
 }
 
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+
+/* Track */
+
+ ::-webkit-scrollbar-track {
+    background-color: #020102;
+}
+
+
+/* Handle */
+
+ ::-webkit-scrollbar-thumb {
+    background: whitesmoke;
+}
+
 body {
     background-image: url(https://images.squarespace-cdn.com/content/v1/54d39958e4b05da119ebf14c/1506234336319-2TXN2N3IPWNJUUNB6U4K/ke17ZwdGBToddI8pDm48kNvT88LknE-K9M4pGNO0Iqd7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z5QPOohDIaIeljMHgDF5CVlOqpeNLcJ80NK65_fV7S1USOFn4xF8vTWDNAUBm5ducQhX-V3oVjSmr829Rco4W2Uo49ZdOtO_QXox0_W7i2zEA/fifa18_thunder.jpg?format=1500w);
     background-attachment: fixed;
@@ -31,152 +49,129 @@ body {
 }
 
 .field {
-    transform: rotate(90deg);
     position: absolute;
-    right: 10%;
-    top: 18%;
-    width: 45%;
+    right: 5%;
+    top: 10%;
+    width: 60%;
+}
+
+.mov {
+    width: 10%;
+}
+
+.main {
+    width: 60%;
+    display: inline-block;
+}
+
+.player {
+    color: rgb(255, 255, 255);
+    letter-spacing: 2pt;
+    font-size: 1.2rem;
 }
 
 #forward,
-#left,
-#right,
-#center,
+#rw,
+#lw,
+#cm,
 #lcm,
 #rcm,
 #lb,
 #rb,
 #rcb,
 #lcb,
-#gk,
-.forward,
-.left,
-.right,
-.center,
-.lcm,
-.rcm,
-.lb,
-.rb,
-.rcb,
-.lcb,
-.gk {
-    text-align: center;
+#gk {
     position: absolute;
-    left: 64%;
-    top: 18%;
-    color: rgb(255, 255, 255);
-    text-shadow: 0 0 10px 10px black;
-    background: transparent;
-    font-size: 1rem;
-    letter-spacing: 2pt;
-    border: transparent;
+    right: 300px;
+    border-radius: 50%;
+    top: 340px;
+    background-color: #00000041;
+    padding: 1.5%;
+    box-shadow: 0 0 1px 2px rgba(0, 0, 0, 0.288);
 }
 
-#left {
-    left: 55%;
-    top: 27%;
+#lw {
+    right: 300px;
+    top: 140px;
 }
 
-.left {
-    left: 58%;
-    top: 20%;
+#rw {
+    right: 300px;
+    top: 540px;
 }
 
-#right {
-    left: 71%;
-    top: 27%;
-}
-
-.right {
-    left: 74%;
-    top: 20%;
-}
-
-#center {
-    top: 37%;
-    left: 63%;
-}
-
-.center {
-    top: 31%;
-    left: 65%;
-}
-
-#lcm {
-    top: 50%;
-    left: 57%;
-}
-
-.lcm {
-    top: 44%;
-    left: 59%;
+#cm {
+    right: 500px;
+    top: 340px;
 }
 
 #rcm {
-    top: 50%;
-    left: 69%;
+    right: 500px;
+    top: 540px;
 }
 
-.rcm {
-    top: 44%;
-    left: 71%;
+#lcm {
+    right: 500px;
+    top: 140px;
 }
 
 #rb {
-    top: 60%;
-    left: 72%;
-}
-
-.rb {
-    top: 54%;
-    left: 76%;
+    right: 700px;
+    top: 540px;
 }
 
 #lb {
-    top: 60%;
-    left: 55%;
-}
-
-.lb {
-    top: 54%;
-    left: 55%;
+    right: 700px;
+    top: 140px;
 }
 
 #rcb {
-    top: 70%;
-    left: 68%;
-}
-
-.rcb {
-    top: 64%;
-    left: 70%;
+    right: 750px;
+    top: 420px;
 }
 
 #lcb {
-    top: 70%;
-    left: 60%;
-}
-
-.lcb {
-    top: 64%;
-    left: 62%;
+    right: 750px;
+    top: 260px;
 }
 
 #gk {
-    top: 90%;
-    left: 64%;
+    right: 850px;
+    top: 340px;
 }
 
-.gk {
-    top: 84%;
-    left: 66%;
+.player-card {
+    margin-left: 6%;
+    padding: 3%;
+    border: transparent;
+    /* font-size: 1.2rem; */
+    letter-spacing: 2pt;
+    text-transform: uppercase;
+    background-image: url(https://fut-watch.com/img/19/card/goldeuropa_live.png?v=5);
+    background-size: contain;
+    background-color: transparent;
+    color: whitesmoke;
+    padding-top: 6%;
+    font-weight: bold;
+    text-shadow: 0 0 10px black;
+    cursor: crosshair;
 }
 
-.main {
-    width: 3%;
+hr {
+    width: 10%;
+    background-color: white;
 }
 
-.forward {
-    left: 66%;
-    top: 11%;
+.cont {
+    color: rgb(255, 255, 255);
+}
+
+.title {
+    font-family: fifa;
+    font-weight: bold;
+    font-size: 3rem;
+}
+
+.modal-body {
+    padding: 10%;
 }

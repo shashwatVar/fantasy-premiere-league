@@ -1,0 +1,102 @@
+<br>
+<nav class="navbar navbar-expand-lg navbar-light bg-light p-2" style="box-shadow: 0 0 10px black;">
+    <a class="navbar-brand" href="#">FANTASY PL</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown
+        </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" id="transfer" aria-disabled="true">TRANSFER FEE <%= user.transfer %></a>
+            </li>
+        </ul>
+        <div class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick="search(document.getElementById('search').value)">Search</button>
+        </div>
+    </div>
+</nav>
+<p class="text-center mt-2 mb-4 title">
+    Forwards
+</p>
+<%  for (x=0; x < 1000 ; x++) { %>
+    <div class="player-card card text-center col-md-3 d-inline-block mt-5">
+        <b><%= player[x].NAME %></b><br>
+        <hr>
+        <div class="cont"> Rating
+            <%= player[x].RATING %><br>
+                <%= player[x].CLUB %><br>
+                    <%= player[x].POSITION %>
+        </div>
+        <hr> Shooting
+        <%= player[x].SHOOTING %><br> Passing
+            <%= player[x].PASSING %><br> Dribbling
+                <%= player[x].DRIBBLING %><br> Defending
+                    <%= player[x].DEFENDING %><br> Physical
+                        <%= player[x].PHYSICAL %><br>Cost
+                            <%= parseInt(Math.pow(player[x].RATING, 2.05))  %>
+                                <form action="" method="post">
+                                    <input type="text" name="name" value="<%= player[x].NAME %>" style="display: none;">
+                                    <input type="text" name="rating" value="<%= player[x].RATING %>" style="display: none;">
+                                    <input type="text" name="position" value="<%= player[x].POSITION %>" style="display: none;">
+                                    <input type="text" name="shooting" value="<%= player[x].SHOOTING %>" style="display: none;">
+                                    <input type="text" name="dribbling" value="<%= player[x].DRIBBLING %>" style="display: none;">
+                                    <input type="text" name="defending" value="<%= player[x].DEFENDING %>" style="display: none;">
+                                    <input type="text" name="physical" value="<%= player[x].PHYSICAL %>" style="display: none;">
+                                    <input type="text" name="passing" value="<%= player[x].PASSING %>" style="display: none;">
+                                    <input type="text" name="user" value="<%= user.name %>" style="display: none;">
+                                    <input type="text" name="cost" value="<%= parseInt(Math.pow(player[x].RATING, 2.05))  %>" style="display: none;">
+                                    <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#ara<%= x %>" style="border-radius: 30%;background-color:rgb(214, 79, 16);">BUY</button>
+                                </form>
+
+                                <div class="modal fade" id="ara<%= x %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content" style="background-image: url(https://www.gamesatlas.com/igallery/301-400/PES2020_BayernMunich_Stadium_AllianzArena_3-321-1080.jpg);background-size: cover;background-position-x: right;">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">
+                                                    <p class="player">Signing Completed!!!</p>
+                                                </h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                          </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p class="player">
+                                                    <%= player[x].NAME %> SIGNS FOR
+                                                        <%= user.name %>!!! FOR A TOTAL OF
+                                                            <%= parseInt(Math.pow(player[x].RATING, 2.05))  %>$ </p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-primary">CONTINUE</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+    </div>
+    <% } %>
+        <script>
+            document.body.style.backgroundImage = "url('https://media.playstation.com/is/image/SCEA/ps4-tournaments-fifa-20-bg-02-us-17sep19?$native_nt$')";
+
+            function search(string) {
+                window.find(string);
+            }
+        </script>
