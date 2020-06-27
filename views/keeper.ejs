@@ -35,12 +35,13 @@
     </div>
 </nav>
 <p class="text-center mt-2 mb-4 title">
-    Forwards
+    GoalKeepers
+
 </p>
-<%  for (x=0; x < 1000 ; x++) { %>
+<%  for (x=0; x <500 ; x++) { %>
     <% if ( player[x].Price != '0') { %>
 
-        <div class="player-card card text-center col-md-3 d-inline-block mt-5">
+        <div class="player-card card text-center col-md-3 d-inline-block mt-5" style="background-image: url(https://pbs.twimg.com/media/DySedSiW0AA4Pty.png);">
             <b><%= player[x].Name %></b><br>
             <hr>
             <div class="cont"> Rating
@@ -99,7 +100,7 @@
         <% } %>
             <% } %>
                 <script>
-                    document.body.style.backgroundImage = "url('https://media.playstation.com/is/image/SCEA/ps4-tournaments-fifa-20-bg-02-us-17sep19?$native_nt$')";
+                    document.body.style.backgroundImage = "url('https://uploads.ifdesign.de/award_img_330/oex_large/258386_01_razlet.jpg')";
 
                     function search(string) {
                         window.find(string);

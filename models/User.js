@@ -1,33 +1,54 @@
 const mongoose = require('mongoose');
 
 const TeamSchema = new mongoose.Schema({
-    NAME: {
+    Name: {
+        type: String,
+        required: true
+    },
+    Position: {
+        type: String,
+        required: true
+    },
+    Rating: {
+        type: Number
+    },
+    Pace: {
+        type: Number
+    },
+    Shooting: {
+        type: Number
+    },
+    Price: {
         type: String
     },
-    POSITION: {
+    Passing: {
+        type: Number
+    },
+    Dribbling: {
+        type: Number
+    },
+    Defending: {
+        type: Number
+    },
+    Phyiscality: {
+        type: Number
+    },
+    Popularity: {
+        type: Number
+    },
+    PlayerPic: {
         type: String
     },
-    RATING: {
-        type: Number
-    },
-    SHOOTING: {
-        type: Number
-    },
-    PASSING: {
-        type: Number
-    },
-    DRIBBLING: {
-        type: Number
-    },
-    DEFENDING: {
-        type: Number
-    },
-    PHYSICAL: {
-        type: Number
-    },
-    MORALE: {
+    Morale: {
         type: Number,
         default: 100
+    },
+    Club: {
+        type: String,
+        required: true
+    },
+    Country: {
+        type: String
     }
 
 });
@@ -57,7 +78,7 @@ const UserSchema = new mongoose.Schema({
     plgk: [TeamSchema],
     transfer: {
         type: Number,
-        default: 100000,
+        default: 10000000,
     }
 });
 

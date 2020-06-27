@@ -2,52 +2,63 @@ const mongoose = require('mongoose');
 
 
 const PlayerSchema = new mongoose.Schema({
-    NAME: {
+    Name: {
         type: String,
         required: true
     },
-    CLUB: {
+    Club: {
         type: String,
         required: true
     },
-    LEAGUE: {
+    League: {
         type: String,
         required: true
     },
-    POSITION: {
+    Position: {
         type: String,
         required: true
     },
-    TIER: {
-        type: String,
-        required: true
-    },
-    RATING: {
+    Rating: {
         type: Number
     },
-    PACE: {
+    Pace: {
         type: Number
     },
-    SHOOTING: {
+    Shooting: {
         type: Number
     },
-    PASSING: {
+    Price: {
+        type: String
+    },
+    Passing: {
         type: Number
     },
-    DRIBBLING: {
+    Dribbling: {
         type: Number
     },
-    DEFENDING: {
+    Defending: {
         type: Number
     },
-    PHYSICAL: {
+    Phyiscality: {
         type: Number
     },
-    LOADDATE: {
-        type: Date
+    Popularity: {
+        type: Number
     },
     ID: {
         type: Number
+    },
+    Country: {
+        type: String
+    },
+    NationPic: {
+        type: String
+    },
+    ClubPic: {
+        type: String
+    },
+    PlayerPic: {
+        type: String
     }
 });
 

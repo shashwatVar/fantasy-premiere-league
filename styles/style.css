@@ -148,7 +148,7 @@ body {
     letter-spacing: 2pt;
     text-transform: uppercase;
     background-image: url(https://fut-watch.com/img/19/card/goldeuropa_live.png?v=5);
-    background-size: contain;
+    background-size: cover;
     background-color: transparent;
     color: whitesmoke;
     padding-top: 6%;
