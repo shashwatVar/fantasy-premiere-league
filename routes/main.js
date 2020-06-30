@@ -7,17 +7,15 @@ const User = require('../models/User');
 
 // Dashboard
 router.get('/player', ensureAuthenticated, (req, res) => {
-    player.find({}, function(err, player) {
-        if (!err) {
-            res.render('player', {
-                user: req.user,
-                player: player,
-            })
-        } else {
-            console.log(err);
-        }
+    res.render('player', {
+        user: req.user,
     })
+});
 
+router.post('/player', ensureAuthenticated, (req, res) => {
+    res.render('player', {
+        user: req.user,
+    })
 });
 
 router.get('/transfer/forward', ensureAuthenticated, (req, res) => {

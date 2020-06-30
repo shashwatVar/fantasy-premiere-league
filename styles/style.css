@@ -3,6 +3,11 @@
     src: url(./Football\ Attack\ Demo.ttf);
 }
 
+@font-face {
+    font-family: kit;
+    src: url(./kit.otf);
+}
+
 ::-webkit-scrollbar {
     width: 15px;
 }
@@ -48,15 +53,17 @@ body {
     margin-left: 13%;
 }
 
-.field {
-    position: absolute;
-    right: 5%;
-    top: 10%;
+#field {
+    margin-top: -10%;
+    margin-left: 20%;
+    transform: rotate(90deg);
     width: 60%;
+    border-radius:10%;
+    box-shadow: 0 0 10px black
 }
 
-.mov {
-    width: 10%;
+.shirt {
+    width: 50px;
 }
 
 .main {
@@ -70,74 +77,10 @@ body {
     font-size: 1.2rem;
 }
 
-#forward,
-#rw,
-#lw,
-#cm,
-#lcm,
-#rcm,
-#lb,
-#rb,
-#rcb,
-#lcb,
-#gk {
-    position: absolute;
-    right: 300px;
-    border-radius: 50%;
-    top: 340px;
-    background-color: #00000041;
-    padding: 1.5%;
-    box-shadow: 0 0 1px 2px rgba(0, 0, 0, 0.288);
-}
-
-#lw {
-    right: 300px;
-    top: 140px;
-}
-
-#rw {
-    right: 300px;
-    top: 540px;
-}
-
-#cm {
-    right: 500px;
-    top: 340px;
-}
-
-#rcm {
-    right: 500px;
-    top: 540px;
-}
-
-#lcm {
-    right: 500px;
-    top: 140px;
-}
-
-#rb {
-    right: 700px;
-    top: 540px;
-}
-
-#lb {
-    right: 700px;
-    top: 140px;
-}
-
-#rcb {
-    right: 750px;
-    top: 420px;
-}
-
-#lcb {
-    right: 750px;
-    top: 260px;
-}
-
-#gk {
-    right: 850px;
-    top: 340px;
+.player2 {
+    color: rgb(255, 255, 255);
+    letter-spacing: 2pt;
+    text-shadow: 0 0 10px black;
 }
 
 .player-card {
@@ -174,4 +117,80 @@ hr {
 
 .modal-body {
     padding: 10%;
+}
+
+.progress {
+    height: 0.5rem;
+    width: 70px;
+    margin: 0 auto;
+    margin-top: -7%;
+}
+
+.alias {
+    margin-top: 2%;
+    margin-left: 2%;
+}
+
+.droppable {
+    position: absolute;
+    padding: 2%;
+    background-color: transparent;
+    font-family: kit;
+    color: rgb(0, 0, 0);
+    font-size: 0.5rem;
+}
+
+#forward {
+    right: 30%;
+    top: 400px;
+}
+
+#rightw {
+    right: 30%;
+    top: 570px;
+}
+
+#leftw {
+    right: 30%;
+    top: 180px;
+}
+
+#leftm {
+    right: 45%;
+    top: 180px;
+}
+
+#rightm {
+    right: 45%;
+    top: 570px;
+}
+
+#centerm {
+    right: 43%;
+    top: 400px;
+}
+
+#leftb {
+    right: 58%;
+    top: 180px;
+}
+
+#rightb {
+    right: 58%;
+    top: 570px;
+}
+
+#centerrb {
+    right: 58%;
+    top: 450px;
+}
+
+#centerlb {
+    right: 58%;
+    top: 300px;
+}
+
+#gk {
+    right: 70%;
+    top: 400px;
 }

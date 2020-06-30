@@ -1,116 +1,164 @@
+<div class="text-center mt-4 mb-4">
+    <h1 style="color: snow;">TEAM SHEET</h1>
+</div>
+<center><button id="squad" type="button" class="btn btn-primary bg-warning" data-toggle="button" aria-pressed="false" autocomplete="off" onclick="confirm()">Confirm</button></center>
+<center>
+<form method="post"  >
+    <input class="form-control" type="text" name="forward" id='forward0' style='display:none'>
+    <input class="form-control" type="text" name="rightw" id='rightw0' style='display:none'>
+    <input class="form-control" type="text" name="leftw" id='leftw0' style='display:none'>
+    <input class="form-control" type="text" name="rightm" id='rightm0' style='display:none'>
+    <input class="form-control" type="text" name="leftm" id='leftm0' style='display:none'>
+    <input class="form-control" type="text" name="centerm" id='centerm0' style='display:none'>
+    <input class="form-control" type="text" name="leftb" id='leftb0' style='display:none'>
+    <input class="form-control" type="text" name="rightb" id='rightb0' style='display:none'>
+    <input class="form-control" type="text" name="centerlb" id='centerlb0' style='display:none'>
+    <input class="form-control" type="text" name="centerrb" id='centerrb0' style='display:none'>
+    <input class="form-control" type="text" name="gk" id='gk0' style='display:none'>
+    <button type="submit" class="btn btn-primary bg-success"id='submit' >Submit</button>
+    </center>
+
 <div>
-    <img class="field" src="https://img.freepik.com/free-vector/green-soccer-field_106788-196.jpg?size=626&ext=jpg" alt="" srcset="">
+    
 </div>
+
+<div class="col-md-10 text-center">
+    <img id="field" src="https://upload.wikimedia.org/wikipedia/commons/4/45/Football_field.svg" alt="">
+</div>
+<div class="droppable text-center" id="forward">9</div>
+<div class="droppable text-center" id="rightw">11</div>
+<div class="droppable text-center" id="leftw">7</div>
+<div class="droppable text-center" id="rightm">6</div>
+<div class="droppable text-center" id="leftm">8</div>
+<div class="droppable text-center" id="centerm">10</div>
+<div class="droppable text-center" id="leftb">2</div>
+<div class="droppable text-center" id="rightb">3</div>
+<div class="droppable text-center" id="centerrb">4</div>
+<div class="droppable text-center" id="centerlb">5</div>
+<div class="droppable text-center" id="gk">1</div>
 
 
 
+<p class="m-2 bg-success">
+    <center>
+        <h2 style="color: snow;">ROSTER</h2>
+    </center>
+</p>
 
-<div id="forward" class="droppable">
-</div>
-<div id="rw" class="droppable">
-</div>
-<div id="lw" class="droppable">
-</div>
-<div id="cm" class="droppable">
-</div>
-<div id="lcm" class="droppable">
-</div>
-<div id="rcm" class="droppable">
-</div>
-<div id="lb" class="droppable">
-</div>
-<div id="rb" class="droppable">
-</div>
-<div id="rcb" class="droppable">
-</div>
-<div id="lcb" class="droppable">
-</div>
-<div id="gk" class="droppable">
-</div>
+<% for (x=0; x<user.roster.length - 1; x++ ) { %>
+    <div class="text-center d-inline-block col-md-2 alias draggable">
+        <section>
+        <% if (user.roster[x].Position == 'CF' || user.roster[x].Position == 'ST' || user.roster[x].Position == 'RF' || user.roster[x].Position == 'LF') { %>
+            <img class="shirt" src="https://images.vexels.com/media/users/3/148099/isolated/preview/b8bf4b02a670e6dbc8b4a7b20ca553de-uruguay-world-cup-football-shirt-cartoon-by-vexels.png" alt=""><br>
+            <% } else if (user.roster[x].Position == 'CAM' || user.roster[x].Position == 'RM' || user.roster[x].Position == 'RW' || user.roster[x].Position == 'LM' ||  user.roster[x].Position ==
+            'LW' || user.roster[x].Position == 'CM' || user.roster[x].Position == 'CDM') { %>
+            <img class="shirt" src="https://images.vexels.com/media/users/3/147700/isolated/preview/abc2c64b18ebdfecd54c03c9c77d9187-brazil-world-cup-football-shirt-cartoon-by-vexels.png" alt=""><br>
+            <% } else if (user.roster[x].Position == 'LWB' || user.roster[x].Position == 'RWB' || user.roster[x].Position == 'RB' || user.roster[x].Position == 'LB' ||  user.roster[x].Position ==
+            'CB') { %>
+            <img class="shirt" src="https://images.vexels.com/media/users/3/147687/isolated/preview/0ac62a1acf142334a7d6ea51994b559a-belgium-world-cup-football-shirt-cartoon-by-vexels.png" alt=""><br>
+            <% } else { %>
+            <img class="shirt" src="https://images.vexels.com/media/users/3/147764/isolated/preview/6fb2da79adbe893988acd85df27e537c-england-world-cup-football-shirt-cartoon-by-vexels.png" alt=""><br>
+            <% } %>
+            <p class="player2">
+                <%= user.roster[x].Name %>
+            </p>
+            <div class="progress text-center">
+                <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" aria-valuenow="<%= user.roster[x].Morale  %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= user.roster[x].Morale  %>%"></div>
+            </div>
+        </section>
+    </div>
 
-
-
-<div class="mov text-center">
-    <img src="https://i.ya-webdesign.com/images/cartoon-shirt-png.png" alt="" class="forward main">
-    <p class="player">Lionel Messi</p>
-</div>
-<div class="mov text-center">
-    <img src="https://i.ya-webdesign.com/images/cartoon-shirt-png.png" alt="" class="forward main">
-    <p class="player">Ronaldo</p>
-</div>
-<div class="mov text-center">
-    <img src="https://i.ya-webdesign.com/images/cartoon-shirt-png.png" alt="" class="forward main">
-    <p class="player">Neymar</p>
-</div>
-<div class="mov text-center">
-    <img src="https://i.ya-webdesign.com/images/cartoon-shirt-png.png" alt="" class="forward main">
-    <p class="player">Kroos</p>
-</div>
-<div class="mov text-center">
-    <img src="https://i.ya-webdesign.com/images/cartoon-shirt-png.png" alt="" class="forward main">
-    <p class="player">Thiago</p>
-</div>
-<div class="mov text-center">
-    <img src="https://i.ya-webdesign.com/images/cartoon-shirt-png.png" alt="" class="forward main">
-    <p class="player">Pogba</p>
-</div>
-<div class="mov text-center">
-    <img src="https://i.ya-webdesign.com/images/cartoon-shirt-png.png" alt="" class="forward main">
-    <p class="player">Alaba</p>
-</div>
-<div class="mov text-center">
-    <img src="https://i.ya-webdesign.com/images/cartoon-shirt-png.png" alt="" class="forward main">
-    <p class="player">Kimmich</p>
-</div>
-<div class="mov text-center">
-    <img src="https://i.ya-webdesign.com/images/cartoon-shirt-png.png" alt="" class="forward main">
-    <p class="player">Van Dijk</p>
-</div>
-<div class="mov text-center">
-    <img src="https://i.ya-webdesign.com/images/cartoon-shirt-png.png" alt="" class="forward main">
-    <p class="player">Sergio Ramos</p>
-</div>
-<div class="mov text-center">
-    <img src="https://i.ya-webdesign.com/images/cartoon-shirt-png.png" alt="" class="forward main">
-    <p class="player">Jan Oblak</p>
-</div>
+    <% } %>
+    
+        
+    </form>
 
 
+        <script>
+            $("#submit").hide()
+            $("#squad").click(function(){
+                $("#submit").show(); 
+            });
+            document.body.style.backgroundImage = "url('https://cutewallpaper.org/21/fifa-17-background/94-FIFA17-Wallpapers-on-WallpaperSafari.jpg')";
+            $(".draggable").draggable({
+                revert: true
+            });
+            $(".droppable").droppable({
+                drop: function(event, ui) {
+                    $(this).append($(ui.draggable).find('section'));
+                }
+            });
+            
+            
 
 
-<!--<div class="container">
-    <input type="radio" name="formation" id="one" value="4-2-1-2-1" class='check'>
-    <label for="none" onclick="exec()">4-2-1-2-1</label><br>
-    <input type="radio" name="formation" id="two" value="4-3-3" class='check' onclick="mou()">
-    <label for="birthday" onclick="mou()">4-3-3</label><br>
-    <input type="radio" name="formation" id="three" value="4-4-1-1" class='check'>
-    <label for="wedding" onclick="execu()">4-4-1-1</label><br>
-    <input type="radio" name="formation" id="four" value="4-3-2-1" class='check'>
-    <label for="funeral" onclick="execu()">4-3-2-1</label><br>
-</div>-->
+            function confirm() {
+                var ar = document.getElementById('forward').innerText.split('');
+                ar.splice(0, 5);
+                ar.join('');
+                var forward = ar.join('');
+                $("#forward0").val(forward);
 
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+                var ar1 = document.getElementById('rightw').innerText.split('');
+                ar1.splice(0, 5);
+                ar1.join('');
+                var rightw = ar1.join('');
+                $("#rightw0").val(rightw);
 
+                var ar2 = document.getElementById('leftw').innerText.split('');
+                ar2.splice(0, 5);
+                ar2.join('');
+                var leftw = ar2.join('');
+                $("#leftw0").val(leftw);
 
+                var ar3 = document.getElementById('leftm').innerText.split('');
+                ar3.splice(0, 5);
+                ar3.join('');
+                var leftm = ar3.join('');
+                $("#leftm0").val(leftm);
 
+                var ar4 = document.getElementById('rightm').innerText.split('');
+                ar4.splice(0, 5);
+                ar4.join('');
+                var rightm = ar4.join('');
+                $("#rightm0").val(rightm);
 
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link rel="stylesheet" href="/resources/demos/style.css">
+                var ar5 = document.getElementById('centerm').innerText.split('');
+                ar5.splice(0, 5);
+                ar5.join('');
+                var centerm = ar5.join('');
+                $("#centerm0").val(centerm);
 
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script>
-    $(function() {
-        $(".mov").draggable({
-            revert: "invalid"
-        });
+                var ar6 = document.getElementById('leftb').innerText.split('');
+                ar6.splice(0, 5);
+                ar6.join('');
+                var leftb = ar6.join('');
+                $("#leftb0").val(leftb);
 
-        $(".droppable").droppable({
-            classes: {
-                "ui-droppable-active": "ui-state-active",
-                "ui-droppable-hover": "ui-state-hover"
-            },
-        });
-    });
-</script>
+                var ar7 = document.getElementById('rightb').innerText.split('');
+                ar7.splice(0, 5);
+                ar7.join('');
+                var rightb = ar7.join('');
+                $("#rightb0").val(rightb);
+
+                var ar8 = document.getElementById('centerrb').innerText.split('');
+                ar8.splice(0, 5);
+                ar8.join('');
+                var centerrb = ar8.join('');
+                $("#centerrb0").val(centerrb);
+
+                var ar9 = document.getElementById('centerlb').innerText.split('');
+                ar9.splice(0, 5);
+                ar9.join('');
+                var centerlb = ar9.join('');
+                $("#centerlb0").val(centerlb);
+
+                var ar10 = document.getElementById('gk').innerText.split('');
+                ar10.splice(0, 5);
+                ar10.join('');
+                var gk = ar10.join('');
+                $("#gk0").val(gk);
+
+                document.getElementById('squad').style.display = 'none';
+            }
+        </script>
