@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const passport = require('passport');
 const flash = require('connect-flash');
 const session = require('express-session');
-
+const User = require('./models/User');
 
 
 
@@ -69,9 +69,42 @@ app.use('/', require('./routes/index.js'));
 app.use('/users', require('./routes/users.js'));
 app.use('/player', require('./routes/main.js'));
 
+//setInterval(function() {
+User.find({ ready: 'YES' }, (err, user) => {
+    if (user.length > 0) {
+        for (x = 0; x < user.length; x++) {
+            if (x % 2 == 0) {}
+        }
+        User.findOne({ name: user[2].name }, { useFindAndModify: false }, (e, u) => {
+            if (!e) {
+                u.team.push({ name: user[2].name, plforward: user[2].plforward, plmidfield: user[2].plmidfield, pldefender: user[2].pldefender, plgk: user[2].plgk });
+                u.team2.push({ name: user[3].name, plforward: user[3].plforward, plmidfield: user[3].plmidfield, pldefender: user[3].pldefender, plgk: user[3].plgk });
+                if (u.team.length == 2) {
+                    u.team2 = u.team2.slice(1);
+                    u.team = u.team.slice(1);
+                }
+                u.save();
+            } else {
+                console.log(e);
+            }
+        })
+        User.findOne({ name: user[3].name }, { useFindAndModify: false }, (e, u) => {
+            if (!e) {
+                u.team.push({ name: user[2].name, plforward: user[2].plforward, plmidfield: user[2].plmidfield, pldefender: user[2].pldefender, plgk: user[2].plgk });
+                u.team2.push({ name: user[3].name, plforward: user[3].plforward, plmidfield: user[3].plmidfield, pldefender: user[3].pldefender, plgk: user[3].plgk });
+                if (u.team.length == 2) {
+                    u.team2 = u.team2.slice(1);
+                    u.team = u.team.slice(1);
+                }
+                u.save();
+            } else {
+                console.log(e);
+            }
+        })
+    };
+});
 
-
-
+//}, 1000);
 const PORT = process.env.PORT || 4000;
 
 app.listen(PORT, () => {

@@ -53,6 +53,17 @@ const TeamSchema = new mongoose.Schema({
 
 });
 
+const matchSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true
+    },
+    plforward: [TeamSchema],
+    plmidfield: [TeamSchema],
+    pldefender: [TeamSchema],
+    plgk: [TeamSchema],
+});
+
 
 const UserSchema = new mongoose.Schema({
     name: {
@@ -79,7 +90,13 @@ const UserSchema = new mongoose.Schema({
     transfer: {
         type: Number,
         default: 10000000,
-    }
+    },
+    ready: {
+        type: String,
+        default: 'NO',
+    },
+    team: [matchSchema],
+    team2: [matchSchema],
 });
 
 

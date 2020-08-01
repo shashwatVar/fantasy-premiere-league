@@ -3,23 +3,52 @@
 </div>
 <center><button id="squad" type="button" class="btn btn-primary bg-warning" data-toggle="button" aria-pressed="false" autocomplete="off" onclick="confirm()">Confirm</button></center>
 <center>
-<form method="post"  >
-    <input class="form-control" type="text" name="forward" id='forward0' style='display:none'>
-    <input class="form-control" type="text" name="rightw" id='rightw0' style='display:none'>
-    <input class="form-control" type="text" name="leftw" id='leftw0' style='display:none'>
-    <input class="form-control" type="text" name="rightm" id='rightm0' style='display:none'>
-    <input class="form-control" type="text" name="leftm" id='leftm0' style='display:none'>
-    <input class="form-control" type="text" name="centerm" id='centerm0' style='display:none'>
-    <input class="form-control" type="text" name="leftb" id='leftb0' style='display:none'>
-    <input class="form-control" type="text" name="rightb" id='rightb0' style='display:none'>
-    <input class="form-control" type="text" name="centerlb" id='centerlb0' style='display:none'>
-    <input class="form-control" type="text" name="centerrb" id='centerrb0' style='display:none'>
-    <input class="form-control" type="text" name="gk" id='gk0' style='display:none'>
-    <button type="submit" class="btn btn-primary bg-success"id='submit' >Submit</button>
-    </center>
+    <form method="post">
+        <input class="form-control" type="text" name="forward" id='forward0' style='display:none' required>
+        <input class="form-control" type="text" name="rightw" id='rightw0' style='display:none' required>
+        <input class="form-control" type="text" name="leftw" id='leftw0' style='display:none' required>
+        <input class="form-control" type="text" name="rightm" id='rightm0' style='display:none' required>
+        <input class="form-control" type="text" name="leftm" id='leftm0' style='display:none' required>
+        <input class="form-control" type="text" name="centerm" id='centerm0' style='display:none' required>
+        <input class="form-control" type="text" name="leftb" id='leftb0' style='display:none' required>
+        <input class="form-control" type="text" name="rightb" id='rightb0' style='display:none' required>
+        <input class="form-control" type="text" name="centerlb" id='centerlb0' style='display:none' required>
+        <input class="form-control" type="text" name="centerrb" id='centerrb0' style='display:none' required>
+        <input class="form-control" type="text" name="gk" id='gk0' style='display:none' required>
+        <button type="submit" class="btn btn-primary bg-success" id='submit'>Submit</button>
+</center>
 
-<div>
-    
+<div id='sidebar'>
+    <img class="shirt" src="https://images.vexels.com/media/users/3/148099/isolated/preview/b8bf4b02a670e6dbc8b4a7b20ca553de-uruguay-world-cup-football-shirt-cartoon-by-vexels.png" alt=""> = strikers<br>
+    <img class="shirt" src="https://images.vexels.com/media/users/3/147700/isolated/preview/abc2c64b18ebdfecd54c03c9c77d9187-brazil-world-cup-football-shirt-cartoon-by-vexels.png" alt=""> = midfielders<br>
+    <img class="shirt" src="https://images.vexels.com/media/users/3/147687/isolated/preview/0ac62a1acf142334a7d6ea51994b559a-belgium-world-cup-football-shirt-cartoon-by-vexels.png" alt=""> = defenders<br>
+    <img class="shirt" src="https://images.vexels.com/media/users/3/147764/isolated/preview/6fb2da79adbe893988acd85df27e537c-england-world-cup-football-shirt-cartoon-by-vexels.png" alt=""> = goalkeepers <br><br> <u>number vs position</u>
+    <li>1 - goalkeeper</li>
+    <li>2 - defender</li>
+    <li>3 - defender</li>
+    <li>4 - defender</li>
+    <li>5 - defender</li>
+    <li>6 - midfielder</li>
+    <li>7 - midfielder</li>
+    <li>8 - midfielder</li>
+    <li>9 - striker</li>
+    <li>10 - striker/midfielder</li>
+    <li>11 - striker/midfielder</li>
+
+</div>
+
+<div id='sidebar2' class="text-center">
+    <center><u>Instructions</u></center>
+    <ul>
+        <li>drag and drop the shirt of the player on top of the number. </li>
+        <li>in this fashion select you playing 11</li>
+        <li>do not leave any position unfilled, this will damper the performance of your team</li>
+        <li>confirm after selecting the whole team</li>
+        <li>submit to input your team into the match</li>
+        <li>you can play your player out of position, but this is not encouraged as the game is position based</li>
+        <li>you cant submit your team with any position left empty</li>
+    </ul>
+
 </div>
 
 <div class="col-md-10 text-center">
@@ -45,41 +74,41 @@
     </center>
 </p>
 
-<% for (x=0; x<user.roster.length - 1; x++ ) { %>
+<% for (x=0; x<user.roster.length; x++ ) { %>
     <div class="text-center d-inline-block col-md-2 alias draggable">
         <section>
-        <% if (user.roster[x].Position == 'CF' || user.roster[x].Position == 'ST' || user.roster[x].Position == 'RF' || user.roster[x].Position == 'LF') { %>
-            <img class="shirt" src="https://images.vexels.com/media/users/3/148099/isolated/preview/b8bf4b02a670e6dbc8b4a7b20ca553de-uruguay-world-cup-football-shirt-cartoon-by-vexels.png" alt=""><br>
-            <% } else if (user.roster[x].Position == 'CAM' || user.roster[x].Position == 'RM' || user.roster[x].Position == 'RW' || user.roster[x].Position == 'LM' ||  user.roster[x].Position ==
+            <% if (user.roster[x].Position == 'CF' || user.roster[x].Position == 'ST' || user.roster[x].Position == 'RF' || user.roster[x].Position == 'LF') { %>
+                <img class="shirt" src="https://images.vexels.com/media/users/3/148099/isolated/preview/b8bf4b02a670e6dbc8b4a7b20ca553de-uruguay-world-cup-football-shirt-cartoon-by-vexels.png" alt=""><br>
+                <% } else if (user.roster[x].Position == 'CAM' || user.roster[x].Position == 'RM' || user.roster[x].Position == 'RW' || user.roster[x].Position == 'LM' ||  user.roster[x].Position ==
             'LW' || user.roster[x].Position == 'CM' || user.roster[x].Position == 'CDM') { %>
-            <img class="shirt" src="https://images.vexels.com/media/users/3/147700/isolated/preview/abc2c64b18ebdfecd54c03c9c77d9187-brazil-world-cup-football-shirt-cartoon-by-vexels.png" alt=""><br>
-            <% } else if (user.roster[x].Position == 'LWB' || user.roster[x].Position == 'RWB' || user.roster[x].Position == 'RB' || user.roster[x].Position == 'LB' ||  user.roster[x].Position ==
+                    <img class="shirt" src="https://images.vexels.com/media/users/3/147700/isolated/preview/abc2c64b18ebdfecd54c03c9c77d9187-brazil-world-cup-football-shirt-cartoon-by-vexels.png" alt=""><br>
+                    <% } else if (user.roster[x].Position == 'LWB' || user.roster[x].Position == 'RWB' || user.roster[x].Position == 'RB' || user.roster[x].Position == 'LB' ||  user.roster[x].Position ==
             'CB') { %>
-            <img class="shirt" src="https://images.vexels.com/media/users/3/147687/isolated/preview/0ac62a1acf142334a7d6ea51994b559a-belgium-world-cup-football-shirt-cartoon-by-vexels.png" alt=""><br>
-            <% } else { %>
-            <img class="shirt" src="https://images.vexels.com/media/users/3/147764/isolated/preview/6fb2da79adbe893988acd85df27e537c-england-world-cup-football-shirt-cartoon-by-vexels.png" alt=""><br>
-            <% } %>
-            <p class="player2">
-                <%= user.roster[x].Name %>
-            </p>
-            <div class="progress text-center">
-                <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" aria-valuenow="<%= user.roster[x].Morale  %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= user.roster[x].Morale  %>%"></div>
-            </div>
+                        <img class="shirt" src="https://images.vexels.com/media/users/3/147687/isolated/preview/0ac62a1acf142334a7d6ea51994b559a-belgium-world-cup-football-shirt-cartoon-by-vexels.png" alt=""><br>
+                        <% } else { %>
+                            <img class="shirt" src="https://images.vexels.com/media/users/3/147764/isolated/preview/6fb2da79adbe893988acd85df27e537c-england-world-cup-football-shirt-cartoon-by-vexels.png" alt=""><br>
+                            <% } %>
+                                <p class="player2">
+                                    <%= user.roster[x].Name %>
+                                </p>
+                                <div class="progress text-center">
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-warning" role="progressbar" aria-valuenow="<%= user.roster[x].Morale  %>" aria-valuemin="0" aria-valuemax="100" style="width: <%= user.roster[x].Morale  %>%"></div>
+                                </div>
         </section>
     </div>
 
     <% } %>
-    
-        
-    </form>
+
+
+        </form>
 
 
         <script>
             $("#submit").hide()
-            $("#squad").click(function(){
-                $("#submit").show(); 
+            $("#squad").click(function() {
+                $("#submit").show();
             });
-            document.body.style.backgroundImage = "url('https://cutewallpaper.org/21/fifa-17-background/94-FIFA17-Wallpapers-on-WallpaperSafari.jpg')";
+            document.body.style.backgroundImage = "url('https://wallpaperplay.com/walls/full/9/7/0/145562.jpg')";
             $(".draggable").draggable({
                 revert: true
             });
@@ -88,8 +117,8 @@
                     $(this).append($(ui.draggable).find('section'));
                 }
             });
-            
-            
+
+
 
 
             function confirm() {

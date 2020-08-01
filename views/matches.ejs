@@ -1,0 +1,35 @@
+<div class="teamsheet left">
+    <b><u><%= user.team[0].name %></u></b><br>
+    <br>
+    <%= user.team[0].plgk[0].Name %><br>
+        <% for (x=0;x<4;x++) { %>
+            <%= user.team[0].pldefender[x].Name %><br>
+                <%}%>
+                    <% for (x=0;x<5;x++) { %>
+                        <%= user.team[0].plmidfield[x].Name %><br>
+                            <%}%>
+                                <%= user.team[0].plforward[0].Name %>
+</div>
+
+<div class="teamsheet">score</div>
+
+
+<div class="teamsheet right">
+    <b><u><%= user.team2[0].name %></u></b><br>
+    <br>
+    <%= user.team2[0].plgk[0].Name %><br>
+        <% for (x=0;x<4;x++) { %>
+            <%= user.team2[0].pldefender[x].Name %><br>
+                <%}%>
+                    <% for (x=0;x<5;x++) { %>
+                        <%= user.team2[0].plmidfield[x].Name %><br>
+                            <%}%>
+                                <%= user.team2[0].plforward[0].Name %>
+</div>
+
+
+
+
+<script>
+    document.body.style.backgroundImage = "url('https://i.pinimg.com/originals/e3/30/7e/e3307ee202d6b7defb08c64fc00ff41b.jpg')";
+</script>

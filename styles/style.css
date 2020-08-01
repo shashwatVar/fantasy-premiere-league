@@ -57,8 +57,8 @@ body {
     margin-top: -10%;
     margin-left: 20%;
     transform: rotate(90deg);
-    width: 60%;
-    border-radius:10%;
+    width: 540px;
+    border-radius: 10%;
     box-shadow: 0 0 10px black
 }
 
@@ -90,13 +90,13 @@ body {
     /* font-size: 1.2rem; */
     letter-spacing: 2pt;
     text-transform: uppercase;
-    background-image: url(https://fut-watch.com/img/19/card/goldeuropa_live.png?v=5);
+    background-image: url(https://media.futview.com/common/cards/fifa20/totw_silver%402x.png);
     background-size: cover;
     background-color: transparent;
     color: whitesmoke;
     padding-top: 6%;
     font-weight: bold;
-    text-shadow: 0 0 10px black;
+    text-shadow: 0 0 10px rgb(46, 22, 22);
     cursor: crosshair;
 }
 
@@ -193,4 +193,43 @@ hr {
 #gk {
     right: 70%;
     top: 400px;
+}
+
+#sidebar {
+    position: absolute;
+    left: 10px;
+    background-color: #303030a6;
+    top: 200px;
+    padding: 1%;
+    width: 300px;
+    padding-left: 4%;
+    font-family: kit;
+    color: whitesmoke;
+}
+
+#sidebar2 {
+    position: absolute;
+    right: 10px;
+    background-color: #303030a6;
+    top: 200px;
+    padding: 1%;
+    padding-left: 0.3%;
+    width: 300px;
+    font-family: kit;
+    color: whitesmoke;
+}
+
+#sidebar2 ul {
+    text-align: left;
+}
+
+.teamsheet {
+    background-color: white;
+    color: #020102;
+    display: inline-block;
+    padding: 5%;
+    margin: 2.8%;
+    margin-top: 8%;
+    line-height: 30pt;
+    font-size: 1.5rem;
 }

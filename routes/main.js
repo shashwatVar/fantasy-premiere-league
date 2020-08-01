@@ -5,16 +5,162 @@ const player = require('../models/Player');
 const User = require('../models/User');
 
 
-// Dashboard
+//team management
 router.get('/player', ensureAuthenticated, (req, res) => {
     res.render('player', {
         user: req.user,
     })
 });
 
-router.post('/player', ensureAuthenticated, (req, res) => {
-    res.render('player', {
+
+router.get('/matches', ensureAuthenticated, (req, res) => {
+    res.render('matches', {
         user: req.user,
+    })
+});
+
+router.post('/player', ensureAuthenticated, (req, res) => {
+    User.findOneAndUpdate({ name: req.user.name }, { ready: 'YES' }, { useFindAndModify: false }, (err, user) => {
+        if (!err) {
+            if (user.plforward.length == 0) {
+                for (x = 0; x < user.roster.length; x++) {
+                    if (user.roster[x].Name == req.body.forward) {
+                        user.plforward.push({ Name: user.roster[x].Name, Position: user.roster[x].Position, Rating: user.roster[x].Rating, Shooting: user.roster[x].Shooting, Defending: user.roster[x].Defending, Dribbling: user.roster[x].Dribbling, Phyiscality: user.roster[x].Phyiscality, Passing: user.roster[x].Passing, Popularity: user.roster[x].Popularity, Club: user.roster[x].Club, Country: user.roster[x].Country });
+                    }
+                };
+                for (x = 0; x < user.roster.length; x++) {
+                    if (user.roster[x].Name == req.body.rightw) {
+                        user.plmidfield.push({ Name: user.roster[x].Name, Position: user.roster[x].Position, Rating: user.roster[x].Rating, Shooting: user.roster[x].Shooting, Defending: user.roster[x].Defending, Dribbling: user.roster[x].Dribbling, Phyiscality: user.roster[x].Phyiscality, Passing: user.roster[x].Passing, Popularity: user.roster[x].Popularity, Club: user.roster[x].Club, Country: user.roster[x].Country });
+                    }
+                };
+                for (x = 0; x < user.roster.length; x++) {
+                    if (user.roster[x].Name == req.body.leftw) {
+                        user.plmidfield.push({ Name: user.roster[x].Name, Position: user.roster[x].Position, Rating: user.roster[x].Rating, Shooting: user.roster[x].Shooting, Defending: user.roster[x].Defending, Dribbling: user.roster[x].Dribbling, Phyiscality: user.roster[x].Phyiscality, Passing: user.roster[x].Passing, Popularity: user.roster[x].Popularity, Club: user.roster[x].Club, Country: user.roster[x].Country });
+                    }
+                };
+                for (x = 0; x < user.roster.length; x++) {
+                    if (user.roster[x].Name == req.body.leftm) {
+                        user.plmidfield.push({ Name: user.roster[x].Name, Position: user.roster[x].Position, Rating: user.roster[x].Rating, Shooting: user.roster[x].Shooting, Defending: user.roster[x].Defending, Dribbling: user.roster[x].Dribbling, Phyiscality: user.roster[x].Phyiscality, Passing: user.roster[x].Passing, Popularity: user.roster[x].Popularity, Club: user.roster[x].Club, Country: user.roster[x].Country });
+                    }
+                };
+                for (x = 0; x < user.roster.length; x++) {
+                    if (user.roster[x].Name == req.body.rightm) {
+                        user.plmidfield.push({ Name: user.roster[x].Name, Position: user.roster[x].Position, Rating: user.roster[x].Rating, Shooting: user.roster[x].Shooting, Defending: user.roster[x].Defending, Dribbling: user.roster[x].Dribbling, Phyiscality: user.roster[x].Phyiscality, Passing: user.roster[x].Passing, Popularity: user.roster[x].Popularity, Club: user.roster[x].Club, Country: user.roster[x].Country });
+
+                    }
+                };
+                for (x = 0; x < user.roster.length; x++) {
+                    if (user.roster[x].Name == req.body.centerm) {
+                        user.plmidfield.push({ Name: user.roster[x].Name, Position: user.roster[x].Position, Rating: user.roster[x].Rating, Shooting: user.roster[x].Shooting, Defending: user.roster[x].Defending, Dribbling: user.roster[x].Dribbling, Phyiscality: user.roster[x].Phyiscality, Passing: user.roster[x].Passing, Popularity: user.roster[x].Popularity, Club: user.roster[x].Club, Country: user.roster[x].Country });
+
+                    }
+                };
+                for (x = 0; x < user.roster.length; x++) {
+                    if (user.roster[x].Name == req.body.leftb) {
+                        user.pldefender.push({ Name: user.roster[x].Name, Position: user.roster[x].Position, Rating: user.roster[x].Rating, Shooting: user.roster[x].Shooting, Defending: user.roster[x].Defending, Dribbling: user.roster[x].Dribbling, Phyiscality: user.roster[x].Phyiscality, Passing: user.roster[x].Passing, Popularity: user.roster[x].Popularity, Club: user.roster[x].Club, Country: user.roster[x].Country });
+
+                    }
+                };
+                for (x = 0; x < user.roster.length; x++) {
+                    if (user.roster[x].Name == req.body.rightb) {
+                        user.pldefender.push({ Name: user.roster[x].Name, Position: user.roster[x].Position, Rating: user.roster[x].Rating, Shooting: user.roster[x].Shooting, Defending: user.roster[x].Defending, Dribbling: user.roster[x].Dribbling, Phyiscality: user.roster[x].Phyiscality, Passing: user.roster[x].Passing, Popularity: user.roster[x].Popularity, Club: user.roster[x].Club, Country: user.roster[x].Country });
+
+                    }
+                };
+                for (x = 0; x < user.roster.length; x++) {
+                    if (user.roster[x].Name == req.body.centerrb) {
+                        user.pldefender.push({ Name: user.roster[x].Name, Position: user.roster[x].Position, Rating: user.roster[x].Rating, Shooting: user.roster[x].Shooting, Defending: user.roster[x].Defending, Dribbling: user.roster[x].Dribbling, Phyiscality: user.roster[x].Phyiscality, Passing: user.roster[x].Passing, Popularity: user.roster[x].Popularity, Club: user.roster[x].Club, Country: user.roster[x].Country });
+
+                    }
+                };
+                for (x = 0; x < user.roster.length; x++) {
+                    if (user.roster[x].Name == req.body.centerlb) {
+                        user.pldefender.push({ Name: user.roster[x].Name, Position: user.roster[x].Position, Rating: user.roster[x].Rating, Shooting: user.roster[x].Shooting, Defending: user.roster[x].Defending, Dribbling: user.roster[x].Dribbling, Phyiscality: user.roster[x].Phyiscality, Passing: user.roster[x].Passing, Popularity: user.roster[x].Popularity, Club: user.roster[x].Club, Country: user.roster[x].Country });
+
+                    }
+                };
+                for (x = 0; x < user.roster.length; x++) {
+                    if (user.roster[x].Name == req.body.gk) {
+                        user.plgk.push({ Name: user.roster[x].Name, Position: user.roster[x].Position, Rating: user.roster[x].Rating, Shooting: user.roster[x].Shooting, Defending: user.roster[x].Defending, Dribbling: user.roster[x].Dribbling, Phyiscality: user.roster[x].Phyiscality, Passing: user.roster[x].Passing, Popularity: user.roster[x].Popularity, Club: user.roster[x].Club, Country: user.roster[x].Country });
+
+                    }
+                };
+
+            } else {
+                for (x = 0; x < user.roster.length; x++) {
+                    if (user.roster[x].Name == req.body.forward) {
+                        user.plforward.push({ Name: user.roster[x].Name, Position: user.roster[x].Position, Rating: user.roster[x].Rating, Shooting: user.roster[x].Shooting, Defending: user.roster[x].Defending, Dribbling: user.roster[x].Dribbling, Phyiscality: user.roster[x].Phyiscality, Passing: user.roster[x].Passing, Popularity: user.roster[x].Popularity, Club: user.roster[x].Club, Country: user.roster[x].Country });
+                        user.plforward = user.plforward.slice(user.plforward.length - 1, user.plforward.length);
+                    }
+                };
+                for (x = 0; x < user.roster.length; x++) {
+                    if (user.roster[x].Name == req.body.rightw) {
+                        user.plmidfield.push({ Name: user.roster[x].Name, Position: user.roster[x].Position, Rating: user.roster[x].Rating, Shooting: user.roster[x].Shooting, Defending: user.roster[x].Defending, Dribbling: user.roster[x].Dribbling, Phyiscality: user.roster[x].Phyiscality, Passing: user.roster[x].Passing, Popularity: user.roster[x].Popularity, Club: user.roster[x].Club, Country: user.roster[x].Country });
+                        user.plmidfield = user.plmidfield.slice(user.plmidfield.length - 5, user.plmidfield.length);
+                    }
+                };
+                for (x = 0; x < user.roster.length; x++) {
+                    if (user.roster[x].Name == req.body.leftw) {
+                        user.plmidfield.push({ Name: user.roster[x].Name, Position: user.roster[x].Position, Rating: user.roster[x].Rating, Shooting: user.roster[x].Shooting, Defending: user.roster[x].Defending, Dribbling: user.roster[x].Dribbling, Phyiscality: user.roster[x].Phyiscality, Passing: user.roster[x].Passing, Popularity: user.roster[x].Popularity, Club: user.roster[x].Club, Country: user.roster[x].Country });
+                        user.plmidfield = user.plmidfield.slice(user.plmidfield.length - 5, user.plmidfield.length);
+                    }
+                };
+                for (x = 0; x < user.roster.length; x++) {
+                    if (user.roster[x].Name == req.body.leftm) {
+                        user.plmidfield.push({ Name: user.roster[x].Name, Position: user.roster[x].Position, Rating: user.roster[x].Rating, Shooting: user.roster[x].Shooting, Defending: user.roster[x].Defending, Dribbling: user.roster[x].Dribbling, Phyiscality: user.roster[x].Phyiscality, Passing: user.roster[x].Passing, Popularity: user.roster[x].Popularity, Club: user.roster[x].Club, Country: user.roster[x].Country });
+                        user.plmidfield = user.plmidfield.slice(user.plmidfield.length - 5, user.plmidfield.length);
+                    }
+                };
+                for (x = 0; x < user.roster.length; x++) {
+                    if (user.roster[x].Name == req.body.rightm) {
+                        user.plmidfield.push({ Name: user.roster[x].Name, Position: user.roster[x].Position, Rating: user.roster[x].Rating, Shooting: user.roster[x].Shooting, Defending: user.roster[x].Defending, Dribbling: user.roster[x].Dribbling, Phyiscality: user.roster[x].Phyiscality, Passing: user.roster[x].Passing, Popularity: user.roster[x].Popularity, Club: user.roster[x].Club, Country: user.roster[x].Country });
+                        user.plmidfield = user.plmidfield.slice(user.plmidfield.length - 5, user.plmidfield.length);
+                    }
+                };
+                for (x = 0; x < user.roster.length; x++) {
+                    if (user.roster[x].Name == req.body.centerm) {
+                        user.plmidfield.push({ Name: user.roster[x].Name, Position: user.roster[x].Position, Rating: user.roster[x].Rating, Shooting: user.roster[x].Shooting, Defending: user.roster[x].Defending, Dribbling: user.roster[x].Dribbling, Phyiscality: user.roster[x].Phyiscality, Passing: user.roster[x].Passing, Popularity: user.roster[x].Popularity, Club: user.roster[x].Club, Country: user.roster[x].Country });
+                        user.plmidfield = user.plmidfield.slice(user.plmidfield.length - 5, user.plmidfield.length);
+                    }
+                };
+                for (x = 0; x < user.roster.length; x++) {
+                    if (user.roster[x].Name == req.body.leftb) {
+                        user.pldefender.push({ Name: user.roster[x].Name, Position: user.roster[x].Position, Rating: user.roster[x].Rating, Shooting: user.roster[x].Shooting, Defending: user.roster[x].Defending, Dribbling: user.roster[x].Dribbling, Phyiscality: user.roster[x].Phyiscality, Passing: user.roster[x].Passing, Popularity: user.roster[x].Popularity, Club: user.roster[x].Club, Country: user.roster[x].Country });
+                        user.pldefender = user.pldefender.slice(user.pldefender.length - 4, user.pldefender.length);
+                    }
+                };
+                for (x = 0; x < user.roster.length; x++) {
+                    if (user.roster[x].Name == req.body.rightb) {
+                        user.pldefender.push({ Name: user.roster[x].Name, Position: user.roster[x].Position, Rating: user.roster[x].Rating, Shooting: user.roster[x].Shooting, Defending: user.roster[x].Defending, Dribbling: user.roster[x].Dribbling, Phyiscality: user.roster[x].Phyiscality, Passing: user.roster[x].Passing, Popularity: user.roster[x].Popularity, Club: user.roster[x].Club, Country: user.roster[x].Country });
+                        user.pldefender = user.pldefender.slice(user.pldefender.length - 4, user.pldefender.length);
+                    }
+                };
+                for (x = 0; x < user.roster.length; x++) {
+                    if (user.roster[x].Name == req.body.centerrb) {
+                        user.pldefender.push({ Name: user.roster[x].Name, Position: user.roster[x].Position, Rating: user.roster[x].Rating, Shooting: user.roster[x].Shooting, Defending: user.roster[x].Defending, Dribbling: user.roster[x].Dribbling, Phyiscality: user.roster[x].Phyiscality, Passing: user.roster[x].Passing, Popularity: user.roster[x].Popularity, Club: user.roster[x].Club, Country: user.roster[x].Country });
+                        user.pldefender = user.pldefender.slice(user.pldefender.length - 4, user.pldefender.length);
+                    }
+                };
+                for (x = 0; x < user.roster.length; x++) {
+                    if (user.roster[x].Name == req.body.centerlb) {
+                        user.pldefender.push({ Name: user.roster[x].Name, Position: user.roster[x].Position, Rating: user.roster[x].Rating, Shooting: user.roster[x].Shooting, Defending: user.roster[x].Defending, Dribbling: user.roster[x].Dribbling, Phyiscality: user.roster[x].Phyiscality, Passing: user.roster[x].Passing, Popularity: user.roster[x].Popularity, Club: user.roster[x].Club, Country: user.roster[x].Country });
+                        user.pldefender = user.pldefender.slice(user.pldefender.length - 4, user.pldefender.length);
+                    }
+                };
+                for (x = 0; x < user.roster.length; x++) {
+                    if (user.roster[x].Name == req.body.gk) {
+                        user.plgk.push({ Name: user.roster[x].Name, Position: user.roster[x].Position, Rating: user.roster[x].Rating, Shooting: user.roster[x].Shooting, Defending: user.roster[x].Defending, Dribbling: user.roster[x].Dribbling, Phyiscality: user.roster[x].Phyiscality, Passing: user.roster[x].Passing, Popularity: user.roster[x].Popularity, Club: user.roster[x].Club, Country: user.roster[x].Country });
+                        user.plgk = user.plgk.slice(user.plgk.length - 1, user.plgk.length);
+                    }
+                };
+
+            }
+
+            user.save();
+        } else {
+            console.log(err);
+        }
+        res.redirect('/dashboard');
     })
 });
 
