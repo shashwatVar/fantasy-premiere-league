@@ -1,35 +1,297 @@
-<div class="teamsheet left">
-    <b><u><%= user.team[0].name %></u></b><br>
-    <br>
-    <%= user.team[0].plgk[0].Name %><br>
-        <% for (x=0;x<4;x++) { %>
-            <%= user.team[0].pldefender[x].Name %><br>
-                <%}%>
-                    <% for (x=0;x<5;x++) { %>
-                        <%= user.team[0].plmidfield[x].Name %><br>
-                            <%}%>
-                                <%= user.team[0].plforward[0].Name %>
+<div id="matchtime" style="display: none;">
+    <center>
+        <h1 id="matchday">Match Day live</h1>
+    </center>
+
+    <center>
+        <div class="teamsheet left">
+            <b><u><%= user.team[0].name %></u></b><br>
+            <br>
+
+            <%= user.team[0].plgk[0].Name %>
+                <br>
+                <% for (x=0;x<4;x++) { %>
+
+                    <%= user.team[0].pldefender[x].Name %>
+                        <br>
+                        <%}%>
+                            <% for (x=0;x<5;x++) { %>
+
+                                <%= user.team[0].plmidfield[x].Name %>
+                                    <br>
+                                    <%}%>
+
+                                        <%= user.team[0].plforward[0].Name %>
+
+        </div>
+
+
+
+
+        <div class="teamsheet right">
+            <b><u><%= user.team2[0].name %></u></b><br>
+            <br>
+
+            <%= user.team2[0].plgk[0].Name %>
+                <br>
+                <% for (x=0;x<4;x++) { %>
+
+                    <%= user.team2[0].pldefender[x].Name %>
+                        <br>
+                        <%}%>
+                            <% for (x=0;x<5;x++) { %>
+
+                                <%= user.team2[0].plmidfield[x].Name %>
+                                    <br>
+                                    <%}%>
+
+                                        <%= user.team2[0].plforward[0].Name %>
+
+        </div>
+    </center>
+
+    <div class="timeboard">
+        <label id="minutes">00</label>:<label id="seconds">00</label>
+    </div>
+
+    <div class="scoreboard">
+        <div id="score1">
+            0
+        </div>
+        <div id="score2">
+            0
+        </div>
+    </div>
+
+
+    <div id="team1scorer" style="display: none;">
+        <%= user.matches[user.matches.length - 1].team1scorer %>
+    </div>
+
+    <div id="team2scorer" style="display: none;">
+        <%= user.matches[user.matches.length - 1].team2scorer %>
+    </div>
+
+    <div id="team1scorerd">
+
+    </div>
+
+    <div id="team2scorerd">
+
+    </div>
+
+    <div id="time1" style="display: none;">
+        <%= user.matches[user.matches.length - 1].time1 %>
+    </div>
+
+    <div id="time2" style="display: none;">
+        <%= user.matches[user.matches.length - 1].time2 %>
+    </div>
+
+    <img src="https://i.pinimg.com/originals/fa/14/c3/fa14c37338d21dd08fd8c9d4bfaaed1e.png" alt="" id="rightmanager">
+    <img src="https://www.freepngimg.com/thumb/lionel_messi/20097-7-lionel-messi-free-download.png" alt="" id="leftmanager">
+
+    <audio id="myAudio" style="display: none;" controls loop>
+    <source src="https://geforce6t.github.io/color/color/hacker+++/hacker+/default.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+    <audio id="myAudio2" style="display: none;">
+    <source src="https://geforce6t.github.io/color/color/hacker+++/hacker+/goal.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+    <center>
+        <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off" id="song" onclick="play()">
+    match  sound
+</button>
+    </center>
 </div>
 
-<div class="teamsheet">score</div>
-
-
-<div class="teamsheet right">
-    <b><u><%= user.team2[0].name %></u></b><br>
-    <br>
-    <%= user.team2[0].plgk[0].Name %><br>
-        <% for (x=0;x<4;x++) { %>
-            <%= user.team2[0].pldefender[x].Name %><br>
-                <%}%>
-                    <% for (x=0;x<5;x++) { %>
-                        <%= user.team2[0].plmidfield[x].Name %><br>
-                            <%}%>
-                                <%= user.team2[0].plforward[0].Name %>
+<div id="warning">
+    COME AFTER 6PM. MATCH IS PLAYED AT 6:24 PM TILL 6:33PM, THE MATCH SERVER IS ACTIVE ONLY FOR AN HOUR (6-7).
 </div>
-
-
-
 
 <script>
-    document.body.style.backgroundImage = "url('https://i.pinimg.com/originals/e3/30/7e/e3307ee202d6b7defb08c64fc00ff41b.jpg')";
+    String.prototype.trim = function(charlist) {
+        return this.trimLeft(charlist).trimRight(charlist);
+    };
+
+    document.body.style.backgroundImage = "url('https://upload.wikimedia.org/wikipedia/commons/7/71/Black.png')";
+    var continuous = document.getElementById("myAudio");
+    var goal = document.getElementById("myAudio2");
+
+
+
+    var refk = (((document.getElementById('team1scorer').innerHTML).trim()).split(','));
+    var refl = (((document.getElementById('team2scorer').innerHTML).trim()).split(','));
+
+    var time1k;
+    var time2k;
+
+    if (((document.getElementById('time2').innerHTML).trim()).length == 0) {
+        time2k = [];
+    } else {
+        time2k = (((document.getElementById('time2').innerHTML).trim()).split(','));
+    }
+    if (((document.getElementById('time1').innerHTML).trim()).length == 0) {
+        time1k = [];
+    } else {
+        time1k = (((document.getElementById('time1').innerHTML).trim()).split(','));
+    }
+
+    function play() {
+        continuous.play();
+    }
+
+
+
+
+    var d = new Date();
+    var totseconds = d.getSeconds() + 60 * (d.getMinutes() - 24);
+    if (d.getHours() == 18) {
+        document.body.style.backgroundImage = "url('https://www.pcclean.io/wp-content/uploads/2020/4/QRfmqu.jpg')";
+        document.getElementById('matchtime').style.display = 'block';
+        document.getElementById('warning').style.display = 'none';
+
+        var minutesLabel = document.getElementById("minutes");
+        var secondsLabel = document.getElementById("seconds");
+        var totalSeconds = 0;
+
+
+        var now = new Date();
+        var millisTill10 = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 18, 24, 0, 0) - now;
+        if (millisTill10 < 0) {
+            millisTill10 += 86400000; // it's after 10am, try 10am tomorrow.
+        }
+        var k
+        setTimeout(function() {
+            k = false;
+            test();
+        }, millisTill10);
+
+
+
+
+        if (d.getMinutes() >= 24) {
+            if (d.getMinutes() < 33) {
+                setInterval(setTime2, 1000);
+            }
+
+            if (time1k.length != 0) {
+                for (x = 0; x < time1k.length; x++) {
+                    if (time1k.length != 0) {
+                        if (parseInt(parseInt(pad(parseInt(totseconds / 60)))) >= parseInt(time1k[x])) {
+                            document.getElementById('score1').innerHTML = parseInt(document.getElementById('score1').innerHTML) + 1;
+                            document.getElementById('team1scorerd').innerHTML += ('##' + refk[x] + '  ');
+                        }
+                    }
+                }
+            }
+            if (time2k.length != 0) {
+                for (x = 0; x < time2k.length; x++) {
+                    if (time2k.length != 0) {
+                        if (parseInt(parseInt(pad(parseInt(totseconds / 60)))) >= parseInt(time2k[x])) {
+                            document.getElementById('score2').innerHTML = parseInt(document.getElementById('score2').innerHTML) + 1;
+                            document.getElementById('team2scorerd').innerHTML += ('##' + refl[x] + '  ');
+                        }
+                    }
+                }
+            }
+
+            setInterval(function() {
+                if (time1k.length != 0) {
+                    for (x = 0; x < time1k.length; x++) {
+                        if (time1k.length != 0) {
+                            if (parseInt(parseInt(pad(parseInt(totseconds / 60)))) == parseInt(time1k[x])) {
+                                document.getElementById('score1').innerHTML = parseInt(document.getElementById('score1').innerHTML) + 1;
+                                document.getElementById('team1scorerd').innerHTML += ('##' + refk[x] + '  ');
+                                goal.play();
+                            }
+                        }
+                    }
+                }
+                if (time2k.length != 0) {
+                    for (x = 0; x < time2k.length; x++) {
+                        if (time2k.length != 0) {
+                            if (parseInt(parseInt(pad(parseInt(totseconds / 60)))) == parseInt(time2k[x])) {
+                                document.getElementById('score2').innerHTML = parseInt(document.getElementById('score2').innerHTML) + 1;
+                                document.getElementById('team2scorerd').innerHTML += ('##' + refl[x] + '  ');
+                                goal.play();
+                            }
+                        }
+                    }
+                }
+            }, 60000);
+        }
+
+
+
+        function test() {
+            if (k != true) {
+                setInterval(setTime, 1000);
+            }
+        }
+
+        function setTime() {
+            if (parseInt(minutesLabel.innerHTML) < 9) {
+                ++totalSeconds;
+            } else {
+                continuous.pause();
+            }
+            secondsLabel.innerHTML = pad(totalSeconds % 60);
+            minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+        }
+
+        function setTime2() {
+            if (parseInt(minutesLabel.innerHTML) < 9) {
+                ++totseconds;
+            } else {
+                continuous.pause();
+            }
+            secondsLabel.innerHTML = pad(totseconds % 60);
+            minutesLabel.innerHTML = pad(parseInt(totseconds / 60));
+        }
+
+        function pad(val) {
+            var valString = val + "";
+            if (valString.length < 2) {
+                return "0" + valString;
+            } else {
+                return valString;
+            }
+        }
+
+
+        if (d.getMinutes() < 24) {
+            setInterval(function() {
+                if (time1k.length != 0) {
+                    for (x = 0; x < time1k.length; x++) {
+                        if (time1k.length != 0) {
+                            if (parseInt(parseInt(pad(parseInt(totalSeconds / 60)))) == parseInt(time1k[x])) {
+                                document.getElementById('score1').innerHTML = parseInt(document.getElementById('score1').innerHTML) + 1;
+                                document.getElementById('team1scorerd').innerHTML += ('##' + refk[x] + '  ');
+                                goal.play();
+                            }
+                        }
+                    }
+                }
+                if (time2k.length != 0) {
+                    for (x = 0; x < time2k.length; x++) {
+                        if (time2k.length != 0) {
+                            if (parseInt(parseInt(pad(parseInt(totalSeconds / 60)))) == parseInt(time2k[x])) {
+                                document.getElementById('score2').innerHTML = parseInt(document.getElementById('score2').innerHTML) + 1;
+                                document.getElementById('team2scorerd').innerHTML += ('##' + refl[x] + '  ');
+                                goal.play();
+                            }
+                        }
+                    }
+                }
+            }, 60000);
+        }
+        if (d.getMinutes() > 33) {
+            minutesLabel.innerHTML = 'FULL';
+            secondsLabel.innerHTML = 'TIME';
+        }
+    }
 </script>

@@ -1,3 +1,67 @@
-<h1 class="mt-4">Dashboard</h1>
-<p class="lead mb-3">Welcome <%= user.name %></p>
+<p class="lead mb-3">
+    Welcome
+    <%= user.name %>
+</p>
 <a href="/users/logout" class="btn btn-secondary">Logout</a>
+<center>
+    <table id="leaderboard">
+        <tr>
+            <td>NAME</td>
+            <td>PTS</td>
+            <td>GAMES</td>
+            <td>WIN</td>
+            <td>LOSE</td>
+            <td>DRAW</td>
+        </tr>
+        <% for (x=0; x < user.leaderboard[user.leaderboard.length - 1].managers.length; x++) {%>
+            <tr>
+                <td>
+                    <%= user.leaderboard[user.leaderboard.length - 1].managers[x] %>
+                </td>
+                <td>
+                    <%= (user.leaderboard[user.leaderboard.length - 1].wins[x]) * 3 + (user.leaderboard[user.leaderboard.length - 1].draws[x]) * 1 %>
+                </td>
+                <td>
+                    <%= user.leaderboard[user.leaderboard.length - 1].games[x] %>
+                </td>
+                <td>
+                    <%= user.leaderboard[user.leaderboard.length - 1].wins[x] %>
+                </td>
+                <td>
+                    <%= user.leaderboard[user.leaderboard.length - 1].loses[x] %>
+                </td>
+                <td>
+                    <%= user.leaderboard[user.leaderboard.length - 1].draws[x] %>
+                </td>
+
+            </tr>
+            <%}%>
+    </table>
+
+</center>
+
+
+<script>
+    document.body.style.backgroundImage = "url('https://i.pinimg.com/originals/19/1b/6d/191b6d669f008bfaf3950dd3e71ec2ca.jpg')";
+
+    var table, rows, switching, i, x, y, shouldSwitch;
+    table = document.getElementById("leaderboard");
+    switching = true;
+    while (switching) {
+        switching = false;
+        rows = table.rows;
+        for (i = 1; i < (rows.length - 1); i++) {
+            shouldSwitch = false;
+            x = rows[i].getElementsByTagName("TD")[1];
+            y = rows[i + 1].getElementsByTagName("TD")[1];
+            if (parseInt(x.innerHTML) < parseInt(y.innerHTML)) {
+                shouldSwitch = true;
+                break;
+            }
+        }
+        if (shouldSwitch) {
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
+        }
+    }
+</script>

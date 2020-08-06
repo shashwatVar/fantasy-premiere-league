@@ -64,6 +64,56 @@ const matchSchema = new mongoose.Schema({
     plgk: [TeamSchema],
 });
 
+const ResultSchema = new mongoose.Schema({
+    name1: {
+        type: String,
+        required: true
+    },
+    name2: {
+        type: String,
+        required: true
+    },
+    team1scorer: {
+        type: Array
+    },
+    team2scorer: {
+        type: Array
+    },
+    score1: {
+        type: Number,
+        required: true
+    },
+    score2: {
+        type: Number,
+        required: true
+    },
+    time1: {
+        type: Array
+    },
+    time2: {
+        type: Array
+    }
+});
+
+
+const LeaderSchema = new mongoose.Schema({
+    managers: {
+        type: Array
+    },
+    wins: {
+        type: Array
+    },
+    draws: {
+        type: Array
+    },
+    loses: {
+        type: Array
+    },
+    games: {
+        type: Array
+    }
+});
+
 
 const UserSchema = new mongoose.Schema({
     name: {
@@ -97,6 +147,8 @@ const UserSchema = new mongoose.Schema({
     },
     team: [matchSchema],
     team2: [matchSchema],
+    matches: [ResultSchema],
+    leaderboard: [LeaderSchema]
 });
 
 
