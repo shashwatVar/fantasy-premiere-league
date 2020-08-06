@@ -195,17 +195,25 @@ router.post('/transfer/forward', ensureAuthenticated, (req, res) => {
             res.render('fail')
         } else {
             if (!err) {
-                user.roster.push({ Name: req.body.name, Position: req.body.position, Rating: req.body.rating, Shooting: req.body.shooting, Defending: req.body.defending, Dribbling: req.body.dribbling, Phyiscality: req.body.physical, Passing: req.body.passing, Popularity: req.body.popularity, Club: req.body.club, Country: req.body.country });
-                user.save((err) => {
-                    if (err) {
-                        console.log(err);
+                var z = 0
+                for (x = 0; x < user.roster.length; x++) {
+                    if (user.roster[x].Name == req.body.name) {
+                        z += 1;
                     }
-                });
-                User.findOneAndUpdate({ name: req.body.user }, { transfer: budget }, { useFindAndModify: false }, (e, res) => {
-                    if (!e) {
-                        res.save()
-                    }
-                })
+                }
+                if (z == 0) {
+                    user.roster.push({ Name: req.body.name, Position: req.body.position, Rating: req.body.rating, Shooting: req.body.shooting, Defending: req.body.defending, Dribbling: req.body.dribbling, Phyiscality: req.body.physical, Passing: req.body.passing, Popularity: req.body.popularity, Club: req.body.club, Country: req.body.country });
+                    user.save((err) => {
+                        if (err) {
+                            console.log(err);
+                        }
+                    });
+                    User.findOneAndUpdate({ name: req.body.user }, { transfer: budget }, { useFindAndModify: false }, (e, res) => {
+                        if (!e) {
+                            res.save()
+                        }
+                    })
+                }
             } else {
                 console.log(err)
             }
@@ -246,17 +254,25 @@ router.post('/transfer/midfield', ensureAuthenticated, (req, res) => {
             res.render('fail')
         } else {
             if (!err) {
-                user.roster.push({ Name: req.body.name, Position: req.body.position, Rating: req.body.rating, Shooting: req.body.shooting, Defending: req.body.defending, Dribbling: req.body.dribbling, Phyiscality: req.body.physical, Passing: req.body.passing, Popularity: req.body.popularity, Club: req.body.club, Country: req.body.country });
-                user.save((err) => {
-                    if (err) {
-                        console.log(err);
+                var z = 0
+                for (x = 0; x < user.roster.length; x++) {
+                    if (user.roster[x].Name == req.body.name) {
+                        z += 1;
                     }
-                });
-                User.findOneAndUpdate({ name: req.body.user }, { transfer: budget }, { useFindAndModify: false }, (e, res) => {
-                    if (!e) {
-                        res.save()
-                    }
-                })
+                }
+                if (z == 0) {
+                    user.roster.push({ Name: req.body.name, Position: req.body.position, Rating: req.body.rating, Shooting: req.body.shooting, Defending: req.body.defending, Dribbling: req.body.dribbling, Phyiscality: req.body.physical, Passing: req.body.passing, Popularity: req.body.popularity, Club: req.body.club, Country: req.body.country });
+                    user.save((err) => {
+                        if (err) {
+                            console.log(err);
+                        }
+                    });
+                    User.findOneAndUpdate({ name: req.body.user }, { transfer: budget }, { useFindAndModify: false }, (e, res) => {
+                        if (!e) {
+                            res.save()
+                        }
+                    })
+                }
             } else {
                 console.log(err)
             }
@@ -296,17 +312,25 @@ router.post('/transfer/defender', ensureAuthenticated, (req, res) => {
             res.render('fail')
         } else {
             if (!err) {
-                user.roster.push({ Name: req.body.name, Position: req.body.position, Rating: req.body.rating, Shooting: req.body.shooting, Defending: req.body.defending, Dribbling: req.body.dribbling, Phyiscality: req.body.physical, Passing: req.body.passing, Popularity: req.body.popularity, Club: req.body.club, Country: req.body.country });
-                user.save((err) => {
-                    if (err) {
-                        console.log(err);
+                var z = 0
+                for (x = 0; x < user.roster.length; x++) {
+                    if (user.roster[x].Name == req.body.name) {
+                        z += 1;
                     }
-                });
-                User.findOneAndUpdate({ name: req.body.user }, { transfer: budget }, { useFindAndModify: false }, (e, res) => {
-                    if (!e) {
-                        res.save()
-                    }
-                })
+                }
+                if (z == 0) {
+                    user.roster.push({ Name: req.body.name, Position: req.body.position, Rating: req.body.rating, Shooting: req.body.shooting, Defending: req.body.defending, Dribbling: req.body.dribbling, Phyiscality: req.body.physical, Passing: req.body.passing, Popularity: req.body.popularity, Club: req.body.club, Country: req.body.country });
+                    user.save((err) => {
+                        if (err) {
+                            console.log(err);
+                        }
+                    });
+                    User.findOneAndUpdate({ name: req.body.user }, { transfer: budget }, { useFindAndModify: false }, (e, res) => {
+                        if (!e) {
+                            res.save()
+                        }
+                    })
+                }
             } else {
                 console.log(err)
             }
@@ -347,17 +371,25 @@ router.post('/transfer/keeper', ensureAuthenticated, (req, res) => {
             res.render('fail')
         } else {
             if (!err) {
-                user.roster.push({ Name: req.body.name, Position: req.body.position, Rating: req.body.rating, Shooting: req.body.shooting, Defending: req.body.defending, Dribbling: req.body.dribbling, Phyiscality: req.body.physical, Passing: req.body.passing, Popularity: req.body.popularity, Club: req.body.club, Country: req.body.country });
-                user.save((err) => {
-                    if (err) {
-                        console.log(err);
+                var z = 0
+                for (x = 0; x < user.roster.length; x++) {
+                    if (user.roster[x].Name == req.body.name) {
+                        z += 1;
                     }
-                });
-                User.findOneAndUpdate({ name: req.body.user }, { transfer: budget }, { useFindAndModify: false }, (e, res) => {
-                    if (!e) {
-                        res.save()
-                    }
-                })
+                }
+                if (z == 0) {
+                    user.roster.push({ Name: req.body.name, Position: req.body.position, Rating: req.body.rating, Shooting: req.body.shooting, Defending: req.body.defending, Dribbling: req.body.dribbling, Phyiscality: req.body.physical, Passing: req.body.passing, Popularity: req.body.popularity, Club: req.body.club, Country: req.body.country });
+                    user.save((err) => {
+                        if (err) {
+                            console.log(err);
+                        }
+                    });
+                    User.findOneAndUpdate({ name: req.body.user }, { transfer: budget }, { useFindAndModify: false }, (e, res) => {
+                        if (!e) {
+                            res.save()
+                        }
+                    })
+                }
             } else {
                 console.log(err)
             }
