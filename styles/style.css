@@ -57,7 +57,6 @@ body {
     margin-top: -10%;
     margin-left: 20%;
     transform: rotate(90deg);
-    width: 540px;
     border-radius: 10%;
     box-shadow: 0 0 10px black
 }
@@ -90,7 +89,7 @@ body {
     /* font-size: 1.2rem; */
     letter-spacing: 2pt;
     text-transform: uppercase;
-    background-image: url(https://media.futview.com/common/cards/fifa20/totw_silver%402x.png);
+    background-image: url(https://static.wefut.com/assets/images/fut19/gold44.png?205);
     background-size: cover;
     background-color: transparent;
     color: whitesmoke;
@@ -147,22 +146,22 @@ hr {
 
 #rightw {
     right: 30%;
-    top: 570px;
+    top: 590px;
 }
 
 #leftw {
     right: 30%;
-    top: 180px;
+    top: 200px;
 }
 
 #leftm {
     right: 45%;
-    top: 180px;
+    top: 200px;
 }
 
 #rightm {
     right: 45%;
-    top: 570px;
+    top: 590px;
 }
 
 #centerm {
@@ -172,22 +171,22 @@ hr {
 
 #leftb {
     right: 58%;
-    top: 180px;
+    top: 200px;
 }
 
 #rightb {
     right: 58%;
-    top: 570px;
+    top: 590px;
 }
 
 #centerrb {
     right: 58%;
-    top: 450px;
+    top: 470px;
 }
 
 #centerlb {
     right: 58%;
-    top: 300px;
+    top: 320px;
 }
 
 #gk {
@@ -201,7 +200,6 @@ hr {
     background-color: #303030a6;
     top: 200px;
     padding: 1%;
-    width: 300px;
     padding-left: 4%;
     font-family: kit;
     color: whitesmoke;
@@ -214,7 +212,6 @@ hr {
     top: 200px;
     padding: 1%;
     padding-left: 0.3%;
-    width: 300px;
     font-family: kit;
     color: whitesmoke;
 }
@@ -224,15 +221,16 @@ hr {
 }
 
 .teamsheet {
-    font-family: fifa;
-    background-color: #000000b8;
+    font-family: kit;
+    background-color: #ffffff36;
     color: #ffffff;
     display: inline-block;
     padding: 5%;
     margin: 7.7%;
     margin-top: 10%;
     line-height: 23pt;
-    font-size: 1.2rem;
+    width: 34%;
+    font-size: 1rem;
     letter-spacing: 2pt;
     box-shadow: 1px 3px 10px black;
 }
@@ -254,8 +252,8 @@ hr {
     text-align: center;
     position: absolute;
     top: 17%;
-    left: 45.6%;
-    background-color: #0000007d;
+    left: 45%;
+    background-color: #ffffff36;
     padding-top: 3px;
 }
 
@@ -271,7 +269,7 @@ hr {
     left: 10%;
     color: whitesmoke;
     font-size: large;
-    background-color: #000000c7;
+    background-color: #ffffff36;
     max-width: 500px;
     position: absolute;
     padding: 2%;
@@ -305,8 +303,8 @@ hr {
 
 #song {
     position: absolute;
-    top: 80%;
-    left: 45.7%;
+    top: 75%;
+    left: 45%;
 }
 
 #warning {
@@ -324,7 +322,8 @@ hr {
     font-size: 1.5rem;
     color: whitesmoke;
     padding: 3%;
-    background-color: #00000073;
+    background-color: #62626266;
+    font-family: kit;
 }
 
 #leaderboard tr {}
@@ -336,4 +335,284 @@ hr {
 
 thead {
     font-size: xx-large;
+}
+
+.tagged {
+    display: inline-block;
+    width: 30%;
+    background-color: bisque;
+    margin: 2.8%;
+    margin-left: 12%;
+    padding: 2%;
+    background-size: cover;
+    background-position: center;
+    padding-top: 13%;
+    padding-bottom: 11%;
+    font-size: 1.5rem;
+    text-align: center;
+    color: whitesmoke;
+    text-shadow: 1px 1px 1px black;
+    font-family: kit;
+}
+
+h1 {
+    color: whitesmoke;
+    text-transform: uppercase;
+}
+
+h2 {
+    color: whitesmoke;
+    text-transform: uppercase;
+    margin: 4%;
+}
+
+.tagged:hover {
+    background-color: antiquewhite;
+}
+
+.logout {
+    position: absolute;
+    top: 2%;
+    RIGHT: 1%;
+    border-radius: 50%;
+    font-size: 0.9rem;
+    padding: 1%;
+}
+
+.navig {
+    width: 30%;
+    margin: 4%;
+    text-decoration: none;
+    border: transparent;
+    color: rgb(0, 0, 0);
+    padding: 1%;
+    background-color: rgb(255, 255, 255);
+    padding-left: 11%;
+    padding-right: 11%;
+    font-weight: 900;
+}
+
+.navig:hover {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    background-color: rgba(255, 255, 255, 0.486);
+}
+
+.titleh {
+    margin-bottom: 4%;
+}
+
+#topm {
+    margin-top: 4%;
+}
+
+.team-sheet {
+    display: inline-block;
+    width: 20%;
+    font-family: kit;
+    display: inline-block;
+    width: 20%;
+    color: whitesmoke;
+    margin: 0.5%;
+    background-color: #62626266;
+}
+
+.match-sheet {
+    font-family: kit;
+    display: inline-block;
+    width: 40%;
+    padding: 1%;
+    color: whitesmoke;
+    margin: 0.5%;
+    background-color: #62626266;
+}
+
+.hrtype2 {
+    width: 60%;
+    margin: 0%;
+}
+
+.loading {
+    font-size: 0.7rem;
+    font-family: auto;
+}
+
+@media (max-width: 900px) {
+    body {
+        width: 200%;
+        background-position: center;
+    }
+    .titleh {
+        margin-bottom: 6%;
+        font-size: 2rem;
+    }
+    #leaderboard {
+        font-size: 1.1rem;
+        width: 90%;
+    }
+    .team-sheet {
+        margin: 1%;
+    }
+    .match-sheet {
+        margin: 1%;
+    }
+    .logout {
+        right: -97%;
+    }
+    .player-card {
+        width: 40%;
+        padding-top: 13%;
+        display: inline-block;
+    }
+    .alias {
+        width: 30%;
+        font-size: 0.7rem;
+    }
+    #sidebar,
+    #sidebar2 {
+        display: inline-block;
+        position: relative;
+        top: 0%;
+        left: 5%;
+        margin: 2%;
+        margin-top: 10%;
+        width: 40%;
+        padding-top: 4%;
+        padding-bottom: 4%;
+        padding-right: 5%;
+        vertical-align: top;
+    }
+    #field {
+        margin-top: 2%;
+        margin-bottom: 4%;
+        /* margin-top: -10%; */
+        width: 70%;
+        /* margin-left: 20%; */
+        /* border-radius: 10%; */
+        border-radius: 0%;
+        margin-left: 0%;
+        box-shadow: 0 0 10px black;
+    }
+    .droppable {
+        padding: 4%;
+    }
+    #forward {
+        right: -67%;
+        top: 1150px;
+    }
+    #rightw {
+        right: -67%;
+        top: 990px;
+    }
+    #leftw {
+        right: -67%;
+        top: 1300px;
+    }
+    #rightm {
+        top: 1300px;
+        right: -20%;
+    }
+    #leftm {
+        top: 990px;
+        right: -20%;
+    }
+    #centerm {
+        right: -20%;
+        top: 1150px;
+    }
+    #leftb {
+        top: 980px;
+        right: 20%;
+    }
+    #rightb {
+        top: 1310px;
+        right: 20%;
+    }
+    #centerrb {
+        top: 1210px;
+        right: 27%;
+    }
+    #centerlb {
+        top: 1090px;
+        right: 27%;
+    }
+    #gk {
+        top: 1150px;
+        right: 65%;
+    }
+    .teamsheet {
+        margin: 3%;
+        font-family: kit;
+        background-color: #ffffff36;
+        color: #ffffff;
+        display: inline-block;
+        padding: 2%;
+        margin-top: 10%;
+        line-height: 23pt;
+        width: 40%;
+        font-size: 100%;
+        letter-spacing: 2pt;
+        box-shadow: 1px 3px 10px black;
+    }
+    .timeboard {
+        width: 60%;
+        right: -25%;
+        margin-top: 10%;
+        top: 180%;
+        left: initial;
+    }
+    .scoreboard {
+        position: absolute;
+        top: 130%;
+        font-family: kit;
+        font-size: xxx-large;
+        right: -9%;
+        left: initial;
+    }
+    #leftmanager {
+        position: absolute;
+        width: 40%;
+        position: absolute;
+        width: 130%;
+        top: 101%;
+        /* left: -9.5%; */
+        right: -8%;
+        left: initial;
+    }
+    #rightmanager {
+        position: absolute;
+        width: 67%;
+        top: 114%;
+        right: -86%;
+    }
+    #song {
+        position: absolute;
+        top: 160%;
+        /* left: 80%; */
+        right: -16%;
+        left: initial;
+    }
+    #team1scorerd,
+    #team2scorerd {
+        left: initial;
+        top: initial;
+        color: whitesmoke;
+        font-size: large;
+        background-color: #ffffff36;
+        max-width: 30%;
+        position: relative;
+        padding: 2%;
+        display: inline-block;
+        margin-left: 23%;
+    }
+    .tagged {
+        display: inline-block;
+        width: 40%;
+        background-color: bisque;
+        margin: 4.8%;
+        /* margin-left: 12%; */
+        /* padding: 16%; */
+        padding-top: 15%;
+        padding-bottom: 15%;
+    }
 }

@@ -1,27 +1,27 @@
 <br>
-<nav class="navbar navbar-expand-lg navbar-light bg-light p-2" style="box-shadow: 0 0 10px black;">
-    <a class="navbar-brand" href="#">FANTASY PL</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark p-2" style="box-shadow: 0 0 10px black;">
+    <a class="navbar-brand" href="/dashboard">FPL</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <li class="nav-item ">
+                <a class="nav-link" href="/player/matches"> match</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+                <a class="nav-link" href="/player/player">TEAM</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
+          TRANSFER
         </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
+                    <a class="dropdown-item active" href="/player/transfer/forward">FORWARD<span class="sr-only">(current)</span></a>
+                    <a class="dropdown-item" href="/player/transfer/midfield">MIDFIELDER</a>
+                    <a class="dropdown-item" href="/player/transfer/defender">DEFENDER</a>
+                    <a class="dropdown-item" href="/player/transfer/keeper">GOALKEEPER</a>
                 </div>
             </li>
             <li class="nav-item">
@@ -52,48 +52,47 @@
             <%= player[x].Shooting %><br> Passing
                 <%= player[x].Passing %><br> Dribbling
                     <%= player[x].Dribbling %><br> Defending
-                        <%= player[x].Defending %><br> Physical
-                            <%= player[x].Phyiscality %><br> Price
-                                <%= player[x].Price %>
+                        <%= player[x].Defending %><br> Price
+                            <%= player[x].Price %>
 
-                                    <form action="" method="post">
-                                        <input type="text" name="name" value="<%= player[x].Name %>" style="display: none;">
-                                        <input type="text" name="rating" value="<%= player[x].Rating %>" style="display: none;">
-                                        <input type="text" name="position" value="<%= player[x].Position %>" style="display: none;">
-                                        <input type="text" name="shooting" value="<%= player[x].Shooting %>" style="display: none;">
-                                        <input type="text" name="dribbling" value="<%= player[x].Dribbling %>" style="display: none;">
-                                        <input type="text" name="defending" value="<%= player[x].Defending %>" style="display: none;">
-                                        <input type="text" name="physical" value="<%= player[x].Phyiscality %>" style="display: none;">
-                                        <input type="text" name="passing" value="<%= player[x].Passing %>" style="display: none;">
-                                        <input type="text" name="club" value="<%= player[x].Club %>" style="display: none;">
-                                        <input type="text" name="country" value="<%= player[x].Country %>" style="display: none;">
-                                        <input type="text" name="popularity" value="<%= player[x].Popularity %>" style="display: none;">
-                                        <input type="text" name="price" value="<%= player[x].Price %>" style="display: none;">
-                                        <input type="text" name="user" value="<%= user.name %>" style="display: none;">
-                                        <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#ara<%= x %>" style="border-radius: 30%;background-color:rgb(214, 79, 16);">BUY</button>
-                                    </form>
+                                <form action="" method="post">
+                                    <input type="text" name="name" value="<%= player[x].Name %>" style="display: none;">
+                                    <input type="text" name="rating" value="<%= player[x].Rating %>" style="display: none;">
+                                    <input type="text" name="position" value="<%= player[x].Position %>" style="display: none;">
+                                    <input type="text" name="shooting" value="<%= player[x].Shooting %>" style="display: none;">
+                                    <input type="text" name="dribbling" value="<%= player[x].Dribbling %>" style="display: none;">
+                                    <input type="text" name="defending" value="<%= player[x].Defending %>" style="display: none;">
+                                    <input type="text" name="physical" value="<%= player[x].Phyiscality %>" style="display: none;">
+                                    <input type="text" name="passing" value="<%= player[x].Passing %>" style="display: none;">
+                                    <input type="text" name="club" value="<%= player[x].Club %>" style="display: none;">
+                                    <input type="text" name="country" value="<%= player[x].Country %>" style="display: none;">
+                                    <input type="text" name="popularity" value="<%= player[x].Popularity %>" style="display: none;">
+                                    <input type="text" name="price" value="<%= player[x].Price %>" style="display: none;">
+                                    <input type="text" name="user" value="<%= user.name %>" style="display: none;">
+                                    <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#ara<%= x %>" style="border-radius: 30%;background-color:rgb(214, 79, 16);">BUY</button>
+                                </form>
 
-                                    <div class="modal fade" id="ara<%= x %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content" style="background-image: url(https://www.gamesatlas.com/igallery/301-400/PES2020_BayernMunich_Stadium_AllianzArena_3-321-1080.jpg);background-size: cover;background-position-x: right;">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalLabel">
-                                                        <p class="player">Signing Completed!!!</p>
-                                                    </h5>
-                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <div class="modal fade" id="ara<%= x %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content" style="background-image: url(https://www.gamesatlas.com/igallery/301-400/PES2020_BayernMunich_Stadium_AllianzArena_3-321-1080.jpg);background-size: cover;background-position-x: right;">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">
+                                                    <p class="player">Signing Completed!!!</p>
+                                                </h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                           </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <p class="player">
-                                                        <%= player[x].Name %> SIGNS FOR
-                                                            <%= user.name %>!!! FOR A TOTAL OF
-                                                                <%= player[x].Price %>
-                                                    </p>
-                                                </div>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p class="player">
+                                                    <%= player[x].Name %> SIGNS FOR
+                                                        <%= user.name %>!!! FOR A TOTAL OF
+                                                            <%= player[x].Price %>
+                                                </p>
                                             </div>
                                         </div>
                                     </div>
+                                </div>
 
         </div>
         <% } %>

@@ -1,48 +1,168 @@
-<p class="lead mb-3">
-    Welcome
-    <%= user.name %>
-</p>
-<a href="/users/logout" class="btn btn-secondary">Logout</a>
+<br>
 <center>
-    <table id="leaderboard">
-        <tr>
-            <td>NAME</td>
-            <td>PTS</td>
-            <td>GAMES</td>
-            <td>WIN</td>
-            <td>LOSE</td>
-            <td>DRAW</td>
-        </tr>
-        <% for (x=0; x < user.leaderboard[user.leaderboard.length - 1].managers.length; x++) {%>
-            <tr>
-                <td>
-                    <%= user.leaderboard[user.leaderboard.length - 1].managers[x] %>
-                </td>
-                <td>
-                    <%= (user.leaderboard[user.leaderboard.length - 1].wins[x]) * 3 + (user.leaderboard[user.leaderboard.length - 1].draws[x]) * 1 %>
-                </td>
-                <td>
-                    <%= user.leaderboard[user.leaderboard.length - 1].games[x] %>
-                </td>
-                <td>
-                    <%= user.leaderboard[user.leaderboard.length - 1].wins[x] %>
-                </td>
-                <td>
-                    <%= user.leaderboard[user.leaderboard.length - 1].loses[x] %>
-                </td>
-                <td>
-                    <%= user.leaderboard[user.leaderboard.length - 1].draws[x] %>
-                </td>
+    <p class="lead mb-3">
+        <h1 class="titleh">
+            <%= user.name %>
+        </h1>
+    </p>
+</center>
 
-            </tr>
-            <%}%>
-    </table>
+<a href="/users/logout" class="btn btn-secondary logout">EXIT</a>
 
+
+<center>
+    <a href="/player/player" class="navig">MY SQUAD</a>
+    <a href="/player/matches" class="navig">MATCHDAY LIVE</a>
 </center>
 
 
+
+
+
+
+<div class="holding">
+
+
+    <center>
+
+        <% if (user.leaderboard.length != 0) { %>
+            <hr id="topm">
+            <center>
+                <br>
+                <h1>Leaderboard</h1>
+            </center>
+            <br>
+            <table id="leaderboard">
+                <tr>
+                    <td>NAME</td>
+                    <td>PTS</td>
+                    <td>GAMES</td>
+                    <td>WIN</td>
+                    <td>LOSE</td>
+                    <td>DRAW</td>
+                </tr>
+                <% for (x=0; x < user.leaderboard[user.leaderboard.length - 1].managers.length; x++) {%>
+                    <tr>
+                        <td>
+                            <%= user.leaderboard[user.leaderboard.length - 1].managers[x] %>
+                        </td>
+                        <td>
+                            <%= (user.leaderboard[user.leaderboard.length - 1].wins[x]) * 3 + (user.leaderboard[user.leaderboard.length - 1].draws[x]) * 1 %>
+                        </td>
+                        <td>
+                            <%= user.leaderboard[user.leaderboard.length - 1].games[x] %>
+                        </td>
+                        <td>
+                            <%= user.leaderboard[user.leaderboard.length - 1].wins[x] %>
+                        </td>
+                        <td>
+                            <%= user.leaderboard[user.leaderboard.length - 1].loses[x] %>
+                        </td>
+                        <td>
+                            <%= user.leaderboard[user.leaderboard.length - 1].draws[x] %>
+                        </td>
+
+                    </tr>
+                    <%}%>
+            </table>
+            <%}%>
+</div>
+</center>
+
+
+<center>
+
+    <% if (user.roster.length != 0) { %>
+        <hr id="topm">
+        <div class="holding">
+            <h2>MY TEAM</h2>
+            <% for (x=0; x < user.roster.length - 1; x++) {%>
+                <div class="team-sheet">
+                    <img src="https://images.vexels.com/media/users/3/147909/isolated/preview/a07f1fec3bcdd4404446e27b53af720d-peru-world-cup-football-shirt-cartoon-by-vexels.png" alt="" class="shirt"><br>
+                    <%= user.roster[x].Name  %>
+                        <hr class="hrtype2">
+                        <%= user.roster[x].Rating  %>
+                            <hr class="hrtype2">
+                            <%= user.roster[x].Position  %>
+                                <hr class="hrtype2">
+                                <%= user.roster[x].Country  %>
+                                    <hr class="hrtype2">
+                                    <br>
+                </div>
+                <%}%>
+                    <%}%>
+        </div>
+</center>
+
+
+<center>
+
+    <% if (user.matches.length != 0 && user.matches.length > 1) { %>
+        <hr id="topm">
+        <div class="holding">
+            <h2>MY MATCHES</h2>
+            <% for (x=0; x < user.matches.length - 2; x++) {%>
+                <div class="match-sheet">
+                    <%= user.matches[x].name1 %> <br>
+                        <%= user.matches[x].score1 %> :
+                            <%= user.matches[x].score2 %> <br>
+                                <%= user.matches[x].name2 %> <br><br> <u> team 1 scorer </u> <br>
+                                    <%= user.matches[x].team1scorer %> <br><br> <u> team 2 scorer </u> <br>
+                                        <%= user.matches[x].team2scorer %> <br>
+                </div>
+                <%}%>
+                    <%}%>
+        </div>
+</center>
+
+
+
+<div class="holding">
+    <hr id="topm">
+    <center>
+        <br>
+        <h1>BUY PLAYERS</h1> <br>
+        <h2>TOTAL BUDGET:
+            <%= user.transfer %>
+        </h2>
+    </center>
+    <br>
+    <a href="/player/transfer/forward">
+        <div class="tagged" style="background-image: url(https://img.konami.com/wepes/2020/s/img/partner/bayern/fcbm_9_robert-lewandowski.jpg);">
+            FORWARD <br>
+            <p class="loading">(loading time: 5s)</p>
+        </div>
+    </a>
+
+    <a href="/player/transfer/midfield">
+        <div class="tagged" style="background-image: url(https://img.konami.com/wepes/2020/s/img/partner/manutd/munu_6-p-pogba.jpg);">
+            MIDFIELDER <br>
+            <p class="loading">(loading time: 10-15s)</p>
+        </div>
+    </a>
+
+    <a href="/player/transfer/defender">
+        <div class="tagged" style="background-image: url(https://img.konami.com/wepes/2020/s/img/partner/juventus/juv_19_l-bonucci.jpg);">
+            DEFENDER <br>
+            <p class="loading">(loading time: 10-15s)</p>
+        </div>
+    </a>
+
+    <a href="/player/transfer/keeper">
+        <div class="tagged" style="background-image: url(https://img.konami.com/wepes/2020/s/img/partner/manutd/munu_1-david-de-gea.jpg);">
+            GOALKEEPER <br>
+            <p class="loading">(loading time: 3s)</p>
+        </div>
+    </a>
+</div>
+
+<hr>
+
+
+
+
 <script>
-    document.body.style.backgroundImage = "url('https://i.pinimg.com/originals/19/1b/6d/191b6d669f008bfaf3950dd3e71ec2ca.jpg')";
+    document.body.style.backgroundImage = "url('https://media.playstation.com/is/image/SCEA/ps4-tournaments-fifa-20-bg-02-us-17sep19?$native_nt$')";
 
     var table, rows, switching, i, x, y, shouldSwitch;
     table = document.getElementById("leaderboard");

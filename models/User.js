@@ -139,7 +139,7 @@ const UserSchema = new mongoose.Schema({
     plgk: [TeamSchema],
     transfer: {
         type: Number,
-        default: 10000000,
+        default: 5000000,
     },
     ready: {
         type: String,

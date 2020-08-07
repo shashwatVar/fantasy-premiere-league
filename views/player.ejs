@@ -32,8 +32,8 @@
     <li>7 - midfielder</li>
     <li>8 - midfielder</li>
     <li>9 - striker</li>
-    <li>10 - striker/midfielder</li>
-    <li>11 - striker/midfielder</li>
+    <li>10 - midfielder</li>
+    <li>11 - midfielder</li>
 
 </div>
 
@@ -108,7 +108,21 @@
             $("#squad").click(function() {
                 $("#submit").show();
             });
-            document.body.style.backgroundImage = "url('https://wallpaperplay.com/walls/full/9/7/0/145562.jpg')";
+            var width = window.innerWidth;
+            var height = window.innerHeight;
+            var height_img = width * 0.36 / 0.659;
+
+            console.log(width * 0.36);
+            console.log(height_img);
+            console.log(height);
+
+            if (width > 1200) {
+                document.getElementById('field').style.width = `${width * 0.36}px`;
+                document.getElementById('sidebar').style.width = `${width * 0.2}px`;
+                document.getElementById('sidebar2').style.width = `${width * 0.2}px`;
+                console.log('yes');
+            }
+            document.body.style.backgroundImage = "url('https://media.playstation.com/is/image/SCEA/ps4-tournaments-fifa-20-bg-02-us-17sep19?$native_nt$')";
             $(".draggable").draggable({
                 revert: true
             });
