@@ -3,9 +3,6 @@
 <a href="https://github.com/geforce6t/fantasy-premiere-league/network"><img alt="GitHub forks" src="https://img.shields.io/github/forks/geforce6t/fantasy-premiere-league"></a>
 <a href="https://github.com/geforce6t/fantasy-premiere-league/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/geforce6t/fantasy-premiere-league"></a>
 <a href="https://github.com/geforce6t/fantasy-premiere-league"><img alt="GitHub license" src="https://img.shields.io/github/license/geforce6t/fantasy-premiere-league"></a>
-<a href="https://twitter.com/intent/tweet?text=Wow:&url=https%3A%2F%2Fgithub.com%2Fgeforce6t%2Ffantasy-premiere-league"><img alt="Twitter" src="https://img.shields.io/twitter/url?style=plastic"></a>
-
-
 
 
 <!-- TABLE OF CONTENTS -->
