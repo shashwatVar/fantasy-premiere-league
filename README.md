@@ -32,7 +32,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[product-screenshot]](https://example.com)
 
 This is a simple project on the concept of simulation for playing and enjoying football matches. 
 
@@ -61,13 +61,10 @@ be considered. Hence the game is pretty unbiased and relies on conditional proba
 
 <!-- GETTING STARTED -->
 ## Getting Started
-
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+Obviously you guys know more than me. So no extra Knowledge.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
 * npm
 ```sh
 npm install npm@latest -g
@@ -78,7 +75,7 @@ npm install npm@latest -g
 
 1. Clone the repo
 ```sh
-git clone https://github.com/your_username_/Project-Name.git
+git clone https://github.com/geforce6t/fantasy-premiere-league
 ```
 2. Install NPM packages
 ```sh
