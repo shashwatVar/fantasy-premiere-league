@@ -16,6 +16,7 @@
         <input class="form-control" type="text" name="centerrb" id='centerrb0' style='display:none' required>
         <input class="form-control" type="text" name="gk" id='gk0' style='display:none' required>
         <button type="submit" class="btn btn-primary bg-success" id='submit'>Submit</button>
+    </form>
 </center>
 
 <div id='sidebar'>
@@ -100,7 +101,7 @@
     <% } %>
 
 
-        </form>
+
 
 
         <script>
@@ -126,17 +127,8 @@
             $(".draggable").draggable({
                 revert: true
             });
-            //$(".droppable").droppable({
-            //    drop: function(event, ui) {
-            //        $(this).append($(ui.draggable).find('section'));
-            //    }
-            //});
 
             $(".droppable").droppable({
-                classes: {
-                    "ui-droppable-active": "ui-state-active",
-                    "ui-droppable-hover": "ui-state-hover"
-                },
                 accept: function(draggable) {
                     if (!$(this).hasClass('dropped') || draggable.hasClass('dropped')) {
                         return true;
