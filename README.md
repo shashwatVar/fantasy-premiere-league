@@ -33,7 +33,7 @@
 ## About The Project
 
 
-<img src="https://raw.githubusercontent.com/geforce6t/fantasy-premiere-league/master/screenshots/chosenteam.JPG" alt="">
+<img src="https://raw.githubusercontent.com/geforce6t/fantasy-premiere-league/master/screenshots/chosenteam.JPG" alt="" height='30px' width='40px'>
 
 This is a simple project on the concept of simulation for playing and enjoying football matches. 
 
