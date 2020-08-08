@@ -72,7 +72,7 @@ app.use('/player', require('./routes/main.js'));
 
 
 
-var job1 = schedule.scheduleJob({ hour: 16, minute: 30 }, function() {
+var job1 = schedule.scheduleJob({ hour: 9, minute: 45 }, function() {
     User.find({ ready: 'YES' }, (err, user) => {
         function shuffle(array) {
             var currentIndex = array.length,
@@ -132,7 +132,7 @@ var job1 = schedule.scheduleJob({ hour: 16, minute: 30 }, function() {
 });
 
 
-var job2 = schedule.scheduleJob({ hour: 17, minute: 00 }, function() {
+var job2 = schedule.scheduleJob({ hour: 10, minute: 00 }, function() {
     User.find({ ready: 'YES' }, { useFindAndModify: false }, (e, u) => {
         if (!e) {
             var completed_array = []
@@ -527,7 +527,7 @@ var job2 = schedule.scheduleJob({ hour: 17, minute: 00 }, function() {
 });
 
 
-var job3 = schedule.scheduleJob({ hour: 19, minute: 00 }, function() {
+var job3 = schedule.scheduleJob({ hour: 10, minute: 10 }, function() {
     var user_name = [];
     var user_wins = [];
     var user_draws = [];
@@ -575,8 +575,9 @@ var job3 = schedule.scheduleJob({ hour: 19, minute: 00 }, function() {
     });
 })
 
-var job4 = schedule.scheduleJob({ hour: 19, minute: 03 }, function() {
-    User.find({}, { useFindAndModify: false }, (e, u) => {
+
+var job4 = schedule.scheduleJob({ hour: 10, minute: 20 }, function() {
+    User.find({ ready: 'YES' }, { useFindAndModify: false }, (e, u) => {
         if (!e) {
             for (x = 0; x < u.length; x++) {
                 if (u[x].name == u[x].matches[(u[x].matches.length) - 1].name1) {

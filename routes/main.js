@@ -217,7 +217,7 @@ router.post('/transfer/forward', ensureAuthenticated, (req, res) => {
             } else {
                 console.log(err)
             }
-            res.redirect('/player/transfer/forward');
+            res.redirect('/dashboard');
         }
     });
 
@@ -276,7 +276,7 @@ router.post('/transfer/midfield', ensureAuthenticated, (req, res) => {
             } else {
                 console.log(err)
             }
-            res.redirect('/player/transfer/midfield');
+            res.redirect('/dashboard');
         }
     });
 });
@@ -334,7 +334,7 @@ router.post('/transfer/defender', ensureAuthenticated, (req, res) => {
             } else {
                 console.log(err)
             }
-            res.redirect('/player/transfer/defender');
+            res.redirect('/dashboard');
         }
     });
 
@@ -393,7 +393,7 @@ router.post('/transfer/keeper', ensureAuthenticated, (req, res) => {
             } else {
                 console.log(err)
             }
-            res.redirect('/player/transfer/keeper');
+            res.redirect('/dashboard');
         }
     });
 
