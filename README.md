@@ -32,8 +32,8 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
+<img src="https://raw.githubusercontent.com/geforce6t/fantasy-premiere-league/master/screenshots/dashboard.JPG" alt="" height='80%' width='80%'>
 
-<img src="https://raw.githubusercontent.com/geforce6t/fantasy-premiere-league/master/screenshots/chosenteam.JPG" alt="" height='30px' width='40px'>
 
 This is a simple project on the concept of simulation for playing and enjoying football matches. 
 
@@ -49,6 +49,19 @@ Some Features
 
 The algorithm for the simulation of matches is based on position specific features.For ex - a Forward will only input his striking ability, his defending won't
 be considered. Hence the game is pretty unbiased and relies on conditional probability to produce results.
+
+<img src="https://raw.githubusercontent.com/geforce6t/fantasy-premiere-league/master/screenshots/chosenteam.JPG" alt="" height='80%' width='80%'>
+
+<img src="https://raw.githubusercontent.com/geforce6t/fantasy-premiere-league/master/screenshots/dashboard2.JPG" alt="" height='80%' width='80%'>
+
+
+<img src="https://raw.githubusercontent.com/geforce6t/fantasy-premiere-league/master/screenshots/goal.JPG" alt="" height='80%' width='80%'>
+
+
+<img src="https://raw.githubusercontent.com/geforce6t/fantasy-premiere-league/master/screenshots/matchdaylive.JPG" alt="" height='80%' width='80%'>
+
+
+<img src="https://raw.githubusercontent.com/geforce6t/fantasy-premiere-league/master/screenshots/transfer.JPG" alt="" height='80%' width='80%'>
 
 
 
