@@ -1,5 +1,5 @@
 <br>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="box-shadow: 0 0 10px black;">
+<nav id="movealong" class="navbar navbar-expand-lg navbar-dark bg-dark" style="box-shadow: 0 0 10px black;">
     <a class="navbar-brand" href="/dashboard">FPL</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -34,6 +34,9 @@
         </div>
     </div>
 </nav>
+
+
+
 <p class="text-center mt-2 mb-4 title">
     Forwards
 </p>
@@ -97,9 +100,12 @@
         </div>
         <% } %>
             <% } %>
+                <div style="position: fixed;" class="theone">
+                    BUDGET <br>
+                    <%= user.transfer %> <br>
+                        <a href="/dashboard"><i class="fa fa-home" aria-hidden="true"></i></a>
+                </div>
                 <script>
-                    document.body.style.backgroundImage = "url('https://media.playstation.com/is/image/SCEA/ps4-tournaments-fifa-20-bg-02-us-17sep19?$native_nt$')";
-
                     function search(string) {
                         window.find(string);
                     }

@@ -34,6 +34,9 @@
         </div>
     </div>
 </nav>
+
+
+
 <p class="text-center mt-2 mb-4 title">
     GoalKeepers
 
@@ -97,9 +100,12 @@
         </div>
         <% } %>
             <% } %>
+                <div style="position: fixed;" class="theone">
+                    BUDGET <br>
+                    <%= user.transfer %> <br>
+                        <a href="/dashboard"><i class="fa fa-home" aria-hidden="true"></i></a>
+                </div>
                 <script>
-                    document.body.style.backgroundImage = "url('https://media.playstation.com/is/image/SCEA/ps4-tournaments-fifa-20-bg-02-us-17sep19?$native_nt$')";
-
                     function search(string) {
                         window.find(string);
                     }

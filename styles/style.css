@@ -436,6 +436,149 @@ h2 {
     font-family: auto;
 }
 
+.slider {
+    display: flex;
+    max-height: auto;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    padding: 3%;
+    transform: scroll(calc(var(--i, 0)/var(--n)*-100%));
+    scroll-behavior: smooth;
+}
+
+.slider .team-sheet:hover {
+    transform: scale(1.05);
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.15);
+}
+
+.slider .match-sheet:hover {
+    transform: scale(1.05);
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.15);
+}
+
+.slide {
+    position: relative;
+}
+
+.slide .team-sheet {
+    height: 100%;
+    width: 250px;
+    margin: 0 10px;
+    object-fit: cover;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: .25s ease-in-out;
+    background-color: #9c2e2e;
+    ;
+}
+
+.slide .match-sheet {
+    height: 100%;
+    width: 250px;
+    margin: 0 10px;
+    object-fit: cover;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: .25s ease-in-out;
+    background-color: #9c2e2e;
+    ;
+}
+
+.slide .team-sheet.zoomed {
+    width: 500px;
+    height: 600px;
+    position: fixed;
+    left: 25%;
+    top: 0%;
+    z-index: 1000;
+    transform: scale(1) translatey(0) !important;
+}
+
+.slide .match-sheet.zoomed {
+    width: 500px;
+    height: 600px;
+    position: fixed;
+    left: 25%;
+    top: 0%;
+    z-index: 1000;
+    transform: scale(1) translatey(0) !important;
+}
+
+.overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, .45);
+    top: 0;
+    display: none;
+}
+
+.overlay.active {
+    display: block;
+}
+
+table {
+    background: #012B39;
+    border-radius: 0.25em;
+    border-collapse: collapse;
+    margin: 1em;
+}
+
+th {
+    border-bottom: 1px solid #364043;
+    color: #E2B842;
+    font-size: 0.85em;
+    font-weight: 600;
+    padding: 0.5em 1em;
+    text-align: left;
+}
+
+td {
+    color: #fff;
+    font-weight: 400;
+    padding: 0.65em 1em;
+}
+
+.disabled td {
+    color: #4F5F64;
+}
+
+tbody tr {
+    transition: background 0.25s ease;
+}
+
+tbody tr:hover {
+    background: #014055;
+}
+
+.scrap {
+    background: #3c3b3f;
+    color: whitesmoke;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #3c3b3f, #605c3c);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #3c3b3f, #605c3c);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    margin-left: 0%;
+}
+
+.theone {
+    position: fixed;
+    top: 15%;
+    right: 1%;
+    font-size: 1.5rem;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    text-align: center;
+    background-color: #f5f5f580;
+    padding: 1%;
+}
+
+.hold {
+    background: url(https://media.contentapi.ea.com/content/dam/ea/fifa/fifa-19/images/2018/11/fifa19-hero-medium-worldtour-7x2-xl.png.adapt.crop3x5.320w.png);
+    background-position: right;
+}
+
 @media (max-width: 900px) {
     body {
         width: 200%;
@@ -617,119 +760,23 @@ h2 {
         padding-top: 15%;
         padding-bottom: 15%;
     }
-}
-
-.slider {
-    display: flex;
-    max-height: auto;
-    overflow-y: hidden;
-    overflow-x: scroll;
-    padding: 3%;
-    transform: scroll(calc(var(--i, 0)/var(--n)*-100%));
-    scroll-behavior: smooth;
-}
-
-.slider .team-sheet:hover {
-    transform: scale(1.05);
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.15);
-}
-
-.slider .match-sheet:hover {
-    transform: scale(1.05);
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.15);
-}
-
-.slide {
-    position: relative;
-}
-
-.slide .team-sheet {
-    height: 100%;
-    width: 250px;
-    margin: 0 10px;
-    object-fit: cover;
-    border-radius: 15px;
-    cursor: pointer;
-    transition: .25s ease-in-out;
-    background-color: #9c2e2e;
-    ;
-}
-
-.slide .match-sheet {
-    height: 100%;
-    width: 250px;
-    margin: 0 10px;
-    object-fit: cover;
-    border-radius: 15px;
-    cursor: pointer;
-    transition: .25s ease-in-out;
-    background-color: #9c2e2e;
-    ;
-}
-
-.slide .team-sheet.zoomed {
-    width: 500px;
-    height: 600px;
-    position: fixed;
-    left: 25%;
-    top: 0%;
-    z-index: 1000;
-    transform: scale(1) translatey(0) !important;
-}
-
-.slide .match-sheet.zoomed {
-    width: 500px;
-    height: 600px;
-    position: fixed;
-    left: 25%;
-    top: 0%;
-    z-index: 1000;
-    transform: scale(1) translatey(0) !important;
-}
-
-.overlay {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background: rgba(0, 0, 0, .45);
-    top: 0;
-    display: none;
-}
-
-.overlay.active {
-    display: block;
-}
-
-table {
-    background: #012B39;
-    border-radius: 0.25em;
-    border-collapse: collapse;
-    margin: 1em;
-}
-
-th {
-    border-bottom: 1px solid #364043;
-    color: #E2B842;
-    font-size: 0.85em;
-    font-weight: 600;
-    padding: 0.5em 1em;
-    text-align: left;
-}
-
-td {
-    color: #fff;
-    font-weight: 400;
-    padding: 0.65em 1em;
-}
-
-.disabled td {
-    color: #4F5F64;
-}
-
-tbody tr {
-    transition: background 0.25s ease;
-}
-
-tbody tr:hover {
-    background: #014055;
+    .scrap {
+        width: 80%;
+        padding-top: 6%;
+        padding-bottom: 11%;
+        font-size: 2rem;
+        padding: 10%;
+    }
+    .hold {
+        width: 80%;
+        font-size: 2rem;
+        background: #3c3b3f;
+        color: whitesmoke;
+        /* fallback for old browsers */
+        background: -webkit-linear-gradient(to left, #3c3b3f, #605c3c);
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to left, #3c3b3f, #605c3c);
+        background: url(https://media.contentapi.ea.com/content/dam/ea/fifa/fifa-19/images/2018/11/fifa19-hero-medium-worldtour-7x2-xl.png.adapt.crop3x5.320w.png);
+        margin-top: 35%;
+    }
 }

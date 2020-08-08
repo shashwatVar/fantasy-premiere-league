@@ -120,7 +120,7 @@
 
         <%}%>
             <div id="warning">
-                IF YOU GET AN OPPONENT YOUR MATCH WILL BE SCHEDULED, COME AFTER 6PM. MATCH IS PLAYED AT 6:24 PM TILL 6:33PM, THE MATCH SERVER IS ACTIVE ONLY FOR AN HOUR (6-7).
+                IF YOU GET AN OPPONENT YOUR MATCH WILL BE SCHEDULED, COME AFTER 4PM. MATCH IS PLAYED AT 4:24 PM TILL 4:33PM, THE MATCH SERVER IS ACTIVE ONLY FOR AN HOUR (4-5).
             </div>
 
             <script>
@@ -160,7 +160,7 @@
 
                 var d = new Date();
                 var totseconds = d.getSeconds() + 60 * (d.getMinutes() - 24);
-                if (d.getHours() == 18) {
+                if (d.getHours() == 16) {
                     document.body.style.backgroundImage = "url('https://media.playstation.com/is/image/SCEA/ps4-tournaments-fifa-20-bg-02-us-17sep19?$native_nt$')";
                     document.getElementById('matchtime').style.display = 'block';
                     document.getElementById('warning').style.display = 'none';
@@ -171,7 +171,7 @@
 
 
                     var now = new Date();
-                    var millisTill10 = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 18, 24, 0, 0) - now;
+                    var millisTill10 = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 16, 24, 0, 0) - now;
                     if (millisTill10 < 0) {
                         millisTill10 += 86400000; // it's after 10am, try 10am tomorrow.
                     }
