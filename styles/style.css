@@ -378,15 +378,15 @@ h2 {
 }
 
 .navig {
-    width: 30%;
+    width: 10%;
     margin: 4%;
     text-decoration: none;
     border: transparent;
     color: rgb(0, 0, 0);
     padding: 1%;
     background-color: rgb(255, 255, 255);
-    padding-left: 11%;
-    padding-right: 11%;
+    padding-left: 6%;
+    padding-right: 6%;
     font-weight: 900;
 }
 

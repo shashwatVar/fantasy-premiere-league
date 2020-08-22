@@ -1,8 +1,19 @@
+<!-- PROJECT SHIELDS -->
+<!--
+*** I'm using markdown "reference style" links for readability.
+*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
+*** See the bottom of this document for the declaration of the reference variables
+*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
+*** https://www.markdownguide.org/basic-syntax/#reference-style-links
+-->
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+[![MIT License][license-shield]][license-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
 
-<a href="https://github.com/geforce6t/fantasy-premiere-league/issues"><img alt="GitHub issues" src="https://img.shields.io/github/issues/geforce6t/fantasy-premiere-league"></a>
-<a href="https://github.com/geforce6t/fantasy-premiere-league/network"><img alt="GitHub forks" src="https://img.shields.io/github/forks/geforce6t/fantasy-premiere-league"></a>
-<a href="https://github.com/geforce6t/fantasy-premiere-league/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/geforce6t/fantasy-premiere-league"></a>
-<a href="https://github.com/geforce6t/fantasy-premiere-league"><img alt="GitHub license" src="https://img.shields.io/github/license/geforce6t/fantasy-premiere-league"></a>
+
 
 
 <!-- TABLE OF CONTENTS -->
@@ -21,8 +32,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-<img src="https://raw.githubusercontent.com/geforce6t/fantasy-premiere-league/master/screenshots/dashboard.JPG" alt="" height='80%' width='80%'>
-
+[product-screenshot]](https://example.com)
 
 This is a simple project on the concept of simulation for playing and enjoying football matches. 
 
@@ -38,19 +48,6 @@ Some Features
 
 The algorithm for the simulation of matches is based on position specific features.For ex - a Forward will only input his striking ability, his defending won't
 be considered. Hence the game is pretty unbiased and relies on conditional probability to produce results.
-
-<img src="https://raw.githubusercontent.com/geforce6t/fantasy-premiere-league/master/screenshots/chosenteam.JPG" alt="" height='80%' width='80%'>
-
-<img src="https://raw.githubusercontent.com/geforce6t/fantasy-premiere-league/master/screenshots/dashboard2.JPG" alt="" height='80%' width='80%'>
-
-
-<img src="https://raw.githubusercontent.com/geforce6t/fantasy-premiere-league/master/screenshots/goal.JPG" alt="" height='80%' width='80%'>
-
-
-<img src="https://raw.githubusercontent.com/geforce6t/fantasy-premiere-league/master/screenshots/matchdaylive.JPG" alt="" height='80%' width='80%'>
-
-
-<img src="https://raw.githubusercontent.com/geforce6t/fantasy-premiere-league/master/screenshots/transfer.JPG" alt="" height='80%' width='80%'>
 
 
 
