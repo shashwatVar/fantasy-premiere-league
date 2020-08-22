@@ -72,9 +72,10 @@ app.use('/player', require('./routes/main.js'));
 
 
 
-var job1 = schedule.scheduleJob({ hour: 10, minute: 00 }, function() {
+///////////////////////////////////scheduling matches for people ready with their team (3:30 pm)////////////////////////////////
+let job1 = schedule.scheduleJob({ hour: 15, minute: 30 }, function() {
     User.find({ ready: 'YES' }, (err, user) => {
-        function shuffle(array) {
+        async function shuffle(array) {
             var currentIndex = array.length,
                 temporaryValue, randomIndex;
             while (0 !== currentIndex) {
@@ -86,7 +87,6 @@ var job1 = schedule.scheduleJob({ hour: 10, minute: 00 }, function() {
             }
             return array;
         }
-        user = shuffle(user);
 
         function recur(n) {
             User.findOne({ name: user[n - 1].name }, { useFindAndModify: false }, (e, u) => {
@@ -98,7 +98,9 @@ var job1 = schedule.scheduleJob({ hour: 10, minute: 00 }, function() {
                         u.team2 = u.team2.slice(1);
                         u.team = u.team.slice(1);
                     }
-                    u.save();
+                    u.save()
+                        .then(console.log('done g'))
+                        .catch(err => console.log(err));
                 } else {
                     console.log(e);
                 }
@@ -111,7 +113,9 @@ var job1 = schedule.scheduleJob({ hour: 10, minute: 00 }, function() {
                         u.team2 = u.team2.slice(1);
                         u.team = u.team.slice(1);
                     }
-                    u.save();
+                    u.save()
+                        .then(console.log('done g2'))
+                        .catch(err => console.log(err));;
                 } else {
                     console.log(e);
                 }
@@ -122,44 +126,51 @@ var job1 = schedule.scheduleJob({ hour: 10, minute: 00 }, function() {
             }
         }
 
-        if (user.length % 2 == 0) {
-            recur(user.length);
-        } else {
-            recur(user.length - 1);
+        async function run_job() {
+            user = await shuffle(user);
+            if (user.length % 2 == 0) {
+                recur(user.length);
+            } else {
+                recur(user.length - 1);
+            }
         }
+
+        run_job();
     });
     console.log('matches decided');
 });
 
 
-var job2 = schedule.scheduleJob({ hour: 10, minute: 29 }, function() {
+
+/////////////////////////////////main algo for result prediction/////////////////////////////////////////////////////////////////
+let job2 = schedule.scheduleJob({ hour: 15, minute: 59 }, function() {
     User.find({ ready: 'YES' }, { useFindAndModify: false }, (e, u) => {
         if (!e) {
             var completed_array = []
             for (x = 0; x < u.length; x++) {
                 if (u[x].team.length != 0) {
-                    var defensive_rating = 0
-                    var defensive_rating2 = 0
-                    var attacking_rating = 0
-                    var attacking_rating2 = 0
-                    var Popularity_rating = 0
-                    var Popularity_rating2 = 0
-                    var midfield_at_rating = 0
-                    var midfield_de_rating = 0
-                    var midfield_de_rating2 = 0
-                    var midfield_at_rating2 = 0
-                    var net_attacking = 0
-                    var net_defensive = 0
-                    var net_attacking2 = 0
-                    var net_defensive2 = 0
-                    var team1 = 0
-                    var team2 = 0
-                    var gk_rating = 0
-                    var gk_rating2 = 0
-                    var goal1
-                    var goal2
-                    var hte
-                    var ate
+                    let defensive_rating = 0
+                    let defensive_rating2 = 0
+                    let attacking_rating = 0
+                    let attacking_rating2 = 0
+                    let Popularity_rating = 0
+                    let Popularity_rating2 = 0
+                    let midfield_at_rating = 0
+                    let midfield_de_rating = 0
+                    let midfield_de_rating2 = 0
+                    let midfield_at_rating2 = 0
+                    let net_attacking = 0
+                    let net_defensive = 0
+                    let net_attacking2 = 0
+                    let net_defensive2 = 0
+                    let team1 = 0
+                    let team2 = 0
+                    let gk_rating = 0
+                    let gk_rating2 = 0
+                    let goal1
+                    let goal2
+                    let hte
+                    let ate
                     if (completed_array.includes(u[x].team[0].name) != true && completed_array.includes(u[x].team2[0].name) != true) {
                         completed_array.push(u[x].team[0].name);
                         completed_array.push(u[x].team2[0].name);
@@ -236,59 +247,33 @@ var job2 = schedule.scheduleJob({ hour: 10, minute: 29 }, function() {
                             }
                             if (itr == 3) {
                                 k.push(2);
-                                k.push(3);
-                                k.push(3);
+                                [1, 1].forEach(function() { k.push(3) });
                             }
                             if (itr == 4) {
                                 k.push(2);
-                                k.push(3);
-                                k.push(3);
-                                k.push(3);
+                                [1, 1, 1].forEach(function() { k.push(3) });
                             }
                             if (itr == 5) {
                                 k.push(2);
-                                k.push(3);
-                                k.push(3);
-                                k.push(3);
+                                [1, 1, 1].forEach(function() { k.push(3) });
                                 k.push(4);
                             }
                             if (itr == 6) {
                                 k.push(2);
-                                k.push(3);
-                                k.push(3);
-                                k.push(3);
-                                k.push(4);
-                                k.push(4);
+                                [1, 1, 1].forEach(function() { k.push(3) });
+                                [1, 1].forEach(function() { k.push(4) });
                             }
                             if (itr == 7) {
                                 k.push(2);
-                                k.push(3);
-                                k.push(3);
-                                k.push(3);
-                                k.push(4);
-                                k.push(4);
-                                k.push(4);
+                                [1, 1, 1].forEach(function() { k.push(3) });
+                                [1, 1, 1].forEach(function() { k.push(4) });
                             }
-                            if (itr == 8) {
+                            if (itr == 8 || itr == 9) {
                                 k.push(2);
-                                k.push(3);
-                                k.push(3);
-                                k.push(3);
-                                k.push(4);
-                                k.push(4);
-                                k.push(4);
-                                k.push(4);
+                                [1, 1, 1].forEach(function() { k.push(3) });
+                                [1, 1, 1, 1].forEach(function() { k.push(4) });
                             }
-                            if (itr == 9) {
-                                k.push(2);
-                                k.push(3);
-                                k.push(3);
-                                k.push(3);
-                                k.push(4);
-                                k.push(4);
-                                k.push(4);
-                                k.push(4);
-                            }
+
                             goal1 = k[Math.floor(Math.random() * (k.length - 1))];
                         } else if (team1 > 10) {
                             goal1 = Math.floor(Math.random() * (Math.floor(team1 / 2) - Math.floor(team1 / 6)) + Math.floor(team1 / 8));
@@ -320,58 +305,31 @@ var job2 = schedule.scheduleJob({ hour: 10, minute: 29 }, function() {
                             }
                             if (itr2 == 3) {
                                 k2.push(2);
-                                k2.push(3);
-                                k2.push(3);
+                                [1, 1].forEach(function() { k2.push(3) });
                             }
                             if (itr2 == 4) {
                                 k2.push(2);
-                                k2.push(3);
-                                k2.push(3);
-                                k2.push(3);
+                                [1, 1, 1].forEach(function() { k2.push(3) });
                             }
                             if (itr2 == 5) {
                                 k2.push(2);
-                                k2.push(3);
-                                k2.push(3);
-                                k2.push(3);
+                                [1, 1, 1].forEach(function() { k2.push(3) });
                                 k2.push(4);
                             }
                             if (itr2 == 6) {
                                 k2.push(2);
-                                k2.push(3);
-                                k2.push(3);
-                                k2.push(3);
-                                k2.push(4);
-                                k2.push(4);
+                                [1, 1, 1].forEach(function() { k2.push(3) });
+                                [1, 1].forEach(function() { k2.push(4) });
                             }
                             if (itr2 == 7) {
                                 k2.push(2);
-                                k2.push(3);
-                                k2.push(3);
-                                k2.push(3);
-                                k2.push(4);
-                                k2.push(4);
-                                k2.push(4);
+                                [1, 1, 1].forEach(function() { k2.push(3) });
+                                [1, 1, 1].forEach(function() { k2.push(4) });
                             }
-                            if (itr2 == 8) {
+                            if (itr2 == 8 || itr2 == 9) {
                                 k2.push(2);
-                                k2.push(3);
-                                k2.push(3);
-                                k2.push(3);
-                                k2.push(4);
-                                k2.push(4);
-                                k2.push(4);
-                                k2.push(4);
-                            }
-                            if (itr2 == 9) {
-                                k2.push(2);
-                                k2.push(3);
-                                k2.push(3);
-                                k2.push(3);
-                                k2.push(4);
-                                k2.push(4);
-                                k2.push(4);
-                                k2.push(4);
+                                [1, 1, 1].forEach(function() { k2.push(3) });
+                                [1, 1, 1, 1].forEach(function() { k2.push(4) });
                             }
                             goal2 = k2[Math.floor(Math.random() * (k2.length - 1))];
 
@@ -510,14 +468,14 @@ var job2 = schedule.scheduleJob({ hour: 10, minute: 29 }, function() {
                             }
                         }
 
-
-
                         console.log(time1);
                         console.log(time2);
+
                         u[ate].matches.push({ name1: u[x].team[0].name, name2: u[x].team2[0].name, score1: goal1, score2: goal2, team1scorer: goal_scorer, team2scorer: goal_scorer2, time1: time1, time2: time2 });
                         u[hte].matches.push({ name1: u[x].team[0].name, name2: u[x].team2[0].name, score1: goal1, score2: goal2, team1scorer: goal_scorer, team2scorer: goal_scorer2, time1: time1, time2: time2 });
-                        u[ate].save();
-                        u[hte].save();
+                        u[ate].save()
+                            .then(u[hte].save())
+                            .catch(err => console.log(err));
                     }
                 }
             }
@@ -527,56 +485,71 @@ var job2 = schedule.scheduleJob({ hour: 10, minute: 29 }, function() {
 });
 
 
-var job3 = schedule.scheduleJob({ hour: 11, minute: 30 }, function() {
-    var user_name = [];
-    var user_wins = [];
-    var user_draws = [];
-    var user_loses = [];
-    var user_games = [];
+
+////////////////////////////////////////adjust the leaderboard based on latest result////////////////////////////////////
+let job3 = schedule.scheduleJob({ hour: 16, minute: 33 }, function() {
+    let user_name = [];
+    let user_wins = [];
+    let user_draws = [];
+    let user_loses = [];
+    let user_games = [];
     User.find({}, { useFindAndModify: false }, (err, user) => {
         if (!err) {
-            for (x = 0; x < user.length; x++) {
-                user_name.push(user[x].name);
-                user_games.push(user[x].matches.length);
-                var wins = 0;
-                var draws = 0;
-                var loses = 0;
-                for (i = 0; i < user[x].matches.length; i++) {
-                    if (user[x].matches[i].name1 == user[x].name) {
-                        if (user[x].matches[i].score1 > user[x].matches[i].score2) {
-                            wins += 1;
-                        } else if (user[x].matches[i].score1 == user[x].matches[i].score2) {
-                            draws += 1;
-                        } else {
-                            loses += 1;
-                        }
+            async function decide_leaderboard() {
 
-                    } else {
-                        if (user[x].matches[i].score2 > user[x].matches[i].score1) {
-                            wins += 1;
-                        } else if (user[x].matches[i].score1 == user[x].matches[i].score2) {
-                            draws += 1;
-                        } else {
-                            loses += 1;
-                        }
+                for (x = 0; x < user.length; x++) {
+                    user_name.push(user[x].name);
+                    user_games.push(user[x].matches.length);
+                    var wins = 0;
+                    var draws = 0;
+                    var loses = 0;
+                    for (i = 0; i < user[x].matches.length; i++) {
+                        if (user[x].matches[i].name1 == user[x].name) {
+                            if (user[x].matches[i].score1 > user[x].matches[i].score2) {
+                                wins += 1;
+                            } else if (user[x].matches[i].score1 == user[x].matches[i].score2) {
+                                draws += 1;
+                            } else {
+                                loses += 1;
+                            }
 
+                        } else {
+                            if (user[x].matches[i].score2 > user[x].matches[i].score1) {
+                                wins += 1;
+                            } else if (user[x].matches[i].score1 == user[x].matches[i].score2) {
+                                draws += 1;
+                            } else {
+                                loses += 1;
+                            }
+
+                        }
                     }
+                    user_wins.push(wins);
+                    user_draws.push(draws);
+                    user_loses.push(loses);
                 }
-                user_wins.push(wins);
-                user_draws.push(draws);
-                user_loses.push(loses);
-            }
-            for (j = 0; j < user.length; j++) {
-                user[j].leaderboard.push({ managers: user_name, wins: user_wins, draws: user_draws, loses: user_loses, games: user_games });
-                user[j].save();
+                return [user_wins, user_draws, user_loses, user_games];
             }
 
+            async function apply() {
+                let arraie = await decide_leaderboard();
+                for (j = 0; j < user.length; j++) {
+                    user[j].leaderboard.push({ managers: user_name, wins: arraie[0], draws: arraie[1], loses: arraie[2], games: arraie[3] });
+                    user[j].save()
+                        .then('leaderboard done g')
+                        .catch((err) => console.log(err));
+                }
+            }
+
+            apply();
         }
     });
 })
 
 
-var job4 = schedule.scheduleJob({ hour: 11, minute: 33 }, function() {
+
+///////////////////////////////////adjust the form of player on the basis of performance done at 4:34 //////////////////////////////////
+let job4 = schedule.scheduleJob({ hour: 16, minute: 34 }, function() {
     User.find({ ready: 'YES' }, { useFindAndModify: false }, (e, u) => {
         if (!e) {
             for (x = 0; x < u.length; x++) {
@@ -810,12 +783,14 @@ var job4 = schedule.scheduleJob({ hour: 11, minute: 33 }, function() {
                         }
                     }
                 }
-                u[x].save();
+                u[x].save()
+                    .then(console.log('morale updated'))
+                    .catch((err) => console.log(err));
             }
         }
     });
-    console.log('morale updated');
 })
+
 
 const PORT = process.env.PORT || 4000;
 

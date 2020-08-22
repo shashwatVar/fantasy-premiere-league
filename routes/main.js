@@ -19,6 +19,8 @@ router.get('/matches', ensureAuthenticated, (req, res) => {
     })
 });
 
+
+///////////////////////////////////////////////posting the teamsheeet for the matches//////////////////////////////////////
 router.post('/player', ensureAuthenticated, (req, res) => {
     User.findOneAndUpdate({ name: req.user.name }, { ready: 'YES' }, { useFindAndModify: false }, (err, user) => {
         if (!err) {
@@ -155,8 +157,9 @@ router.post('/player', ensureAuthenticated, (req, res) => {
                 };
 
             }
-
-            user.save();
+            user.save()
+                .then(console.log('team inserted'))
+                .catch((e) => console.log(e));
         } else {
             console.log(err);
         }
@@ -164,6 +167,10 @@ router.post('/player', ensureAuthenticated, (req, res) => {
     })
 });
 
+
+
+
+////////////////////////////////////////////////route for the forward transfer type/////////////////////////////////////////
 router.get('/transfer/forward', ensureAuthenticated, (req, res) => {
     player.find({ $or: [{ Position: 'ST' }, { Position: 'CF' }, { Position: 'LF' }, { Position: 'RF' }] }, (err, player) => {
         if (!err) {
@@ -177,6 +184,8 @@ router.get('/transfer/forward', ensureAuthenticated, (req, res) => {
     })
 });
 
+
+////////////////////////////////////////////////handling buying forwards///////////////////////////////////////////////////////////////
 router.post('/transfer/forward', ensureAuthenticated, (req, res) => {
     User.findOne({ name: req.body.user }, (err, user) => {
         var price = req.body.price;
@@ -211,6 +220,8 @@ router.post('/transfer/forward', ensureAuthenticated, (req, res) => {
                     User.findOneAndUpdate({ name: req.body.user }, { transfer: budget }, { useFindAndModify: false }, (e, res) => {
                         if (!e) {
                             res.save()
+                                .then(console.log('forward purchased'))
+                                .catch(error => console.log(error));
                         }
                     })
                 }
@@ -223,6 +234,8 @@ router.post('/transfer/forward', ensureAuthenticated, (req, res) => {
 
 });
 
+
+/////////////////////////////////////////////route for midfielder///////////////////////////////
 router.get('/transfer/midfield', ensureAuthenticated, (req, res) => {
     player.find({ $or: [{ Position: 'CAM' }, { Position: 'LW' }, { Position: 'RW' }, { Position: 'RM' }, { Position: 'LM' }, { Position: 'CM' }] }, (err, player) => {
         if (!err) {
@@ -236,6 +249,9 @@ router.get('/transfer/midfield', ensureAuthenticated, (req, res) => {
     })
 });
 
+
+
+///////////////////////////////////buying midfielders//////////////////////////////////////
 router.post('/transfer/midfield', ensureAuthenticated, (req, res) => {
     User.findOne({ name: req.body.user }, (err, user) => {
         var price = req.body.price;
@@ -270,6 +286,8 @@ router.post('/transfer/midfield', ensureAuthenticated, (req, res) => {
                     User.findOneAndUpdate({ name: req.body.user }, { transfer: budget }, { useFindAndModify: false }, (e, res) => {
                         if (!e) {
                             res.save()
+                                .then(console.log('midfielder done g'))
+                                .catch(error => (console.log(error)))
                         }
                     })
                 }
@@ -281,6 +299,8 @@ router.post('/transfer/midfield', ensureAuthenticated, (req, res) => {
     });
 });
 
+
+//////////////////////////////////////////////////////route for defender////////////////////////////////
 router.get('/transfer/defender', ensureAuthenticated, (req, res) => {
     player.find({ $or: [{ Position: 'CDM' }, { Position: 'LWB' }, { Position: 'RWB' }, { Position: 'RB' }, { Position: 'LB' }, { Position: 'CB' }] }, (err, player) => {
         if (!err) {
@@ -293,6 +313,9 @@ router.get('/transfer/defender', ensureAuthenticated, (req, res) => {
         }
     })
 });
+
+
+///////////////////////////////////////////////////////////buying defenders//////////////////////////////////////////////////////////////////////
 
 router.post('/transfer/defender', ensureAuthenticated, (req, res) => {
     User.findOne({ name: req.body.user }, (err, user) => {
@@ -328,6 +351,8 @@ router.post('/transfer/defender', ensureAuthenticated, (req, res) => {
                     User.findOneAndUpdate({ name: req.body.user }, { transfer: budget }, { useFindAndModify: false }, (e, res) => {
                         if (!e) {
                             res.save()
+                                .then(console.log('defender done g'))
+                                .catch(error => console.log(error))
                         }
                     })
                 }
@@ -340,6 +365,7 @@ router.post('/transfer/defender', ensureAuthenticated, (req, res) => {
 
 });
 
+////////////////////////////////////////////////////////route of keeper//////////////////////////////////////////////////////////////
 router.get('/transfer/keeper', ensureAuthenticated, (req, res) => {
     player.find({ Position: 'GK' }, (err, player) => {
         if (!err) {
@@ -353,6 +379,7 @@ router.get('/transfer/keeper', ensureAuthenticated, (req, res) => {
     })
 });
 
+/////////////////////////////////////////////////////////////buying keeper//////////////////////////////////////////
 router.post('/transfer/keeper', ensureAuthenticated, (req, res) => {
     User.findOne({ name: req.body.user }, (err, user) => {
         var price = req.body.price;
@@ -387,6 +414,8 @@ router.post('/transfer/keeper', ensureAuthenticated, (req, res) => {
                     User.findOneAndUpdate({ name: req.body.user }, { transfer: budget }, { useFindAndModify: false }, (e, res) => {
                         if (!e) {
                             res.save()
+                                .then(console.log('keeper done g'))
+                                .catch(error => console.log(error))
                         }
                     })
                 }
