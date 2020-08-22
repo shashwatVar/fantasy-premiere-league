@@ -578,6 +578,10 @@ tbody tr:hover {
     background-position: right;
 }
 
+.gap {
+    margin: 8%;
+}
+
 @media (max-width: 900px) {
     body {
         width: 200%;

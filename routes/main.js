@@ -3,6 +3,8 @@ const router = express.Router();
 const { ensureAuthenticated } = require('../config/auth');
 const player = require('../models/Player');
 const User = require('../models/User');
+const NewsAPI = require('newsapi');
+const newsapi = new NewsAPI('005add6301a14bf189c4e66cca9ecfdf');
 
 
 //team management
@@ -18,6 +20,22 @@ router.get('/matches', ensureAuthenticated, (req, res) => {
         user: req.user,
     })
 });
+
+router.get('/news', ensureAuthenticated, (req, res) => {
+    newsapi.v2.topHeadlines({
+            category: 'sports',
+            language: 'en',
+            country: 'gb'
+        }).then(notes => {
+            console.log(notes);
+            res.render('news', {
+                user: req.user,
+                notes: notes
+            })
+        })
+        .catch(err => console.log(err));
+});
+
 
 
 ///////////////////////////////////////////////posting the teamsheeet for the matches//////////////////////////////////////

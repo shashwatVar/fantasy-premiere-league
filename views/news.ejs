@@ -1,0 +1,38 @@
+<p class="text-center mt-2 mb-4 title">
+    SPORTS - NEWS
+</p>
+
+<% for (x=0;x<notes.articles.length;x++)  {%>
+    <div class="row gap">
+        <center>
+            <div class="col-12 col-sm-8 col-md-8 col-lg-8">
+                <div class="card">
+                    <img class="card-img" src="<%= notes.articles[x].urlToImage %>" alt="Bologna">
+                    <div class="card-img-overlay">
+                        <a href="<%= notes.articles[x].url %>" class="btn btn-info" style="background-color: rgba(0, 0, 0, 0.397)">
+                            READ FULL ARTICLE
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <%= notes.articles[x].title %>
+                        </h4>
+                        <p class="card-text">
+                            <%= notes.articles[x].description %>
+                        </p>
+
+                    </div>
+                    <div class="card-footer text-muted d-flex justify-content-between bg-transparent border-top-0">
+                        <div class="views">
+                            <%= notes.articles[x].publishedAt %>
+                        </div>
+                        <div class="stats">
+                            <%= notes.articles[x].author %>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </center>
+    </div>
+    <%}%>

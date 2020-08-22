@@ -35,8 +35,6 @@
     </div>
 </nav>
 
-
-
 <p class="text-center mt-2 mb-4 title">
     Forwards
 </p>
@@ -58,7 +56,7 @@
                         <%= player[x].Defending %><br> Price
                             <%= player[x].Price %>
 
-                                <form action="" method="post">
+                                <form action="" method="post" id="myForm">
                                     <input type="text" name="name" value="<%= player[x].Name %>" style="display: none;">
                                     <input type="text" name="rating" value="<%= player[x].Rating %>" style="display: none;">
                                     <input type="text" name="position" value="<%= player[x].Position %>" style="display: none;">
@@ -96,7 +94,6 @@
                                         </div>
                                     </div>
                                 </div>
-
         </div>
         <% } %>
             <% } %>

@@ -203,25 +203,20 @@
             document.body.style.backgroundImage = "url('https://media.playstation.com/is/image/SCEA/ps4-tournaments-fifa-20-bg-02-us-17sep19?$native_nt$')";
             var d = new Date();
 
-            if (d.getHours = 16 && d.getHours < 33) {
+            if (d.getHours() == 16 && d.getMinutes() < 33) {
                 document.getElementById('duringmatch').style.display = 'block';
-                document.getElementById('aftermatch').style.display = 'none';
-            } else {
-                document.getElementById('aftermatch').style.display = 'block';
+            } else if (d.getHours() == 16 && d.getMinutes() > 33) {
                 document.getElementById('duringmatch').style.display = 'none';
+                document.getElementById('aftermatch').style.display = 'block';
             }
 
-            if (d.getHours == 15 && d.getHours < 59) {
+
+            if (d.getHours() == 15 && d.getMinutes() < 59) {
                 document.getElementById('aftermatch').style.display = 'block';
-                document.getElementById('duringmatch').style.display = 'none';
-            } else {
-                document.getElementById('duringmatch').style.display = 'block';
-                document.getElementById('aftermatch').style.display = 'none';
             }
 
-            if (d.getHours != 15 && d.getHours != 16) {
+            if (d.getHours() != 15 && d.getHours() != 16) {
                 document.getElementById('aftermatch').style.display = 'block';
-                document.getElementById('duringmatch').style.display = 'none';
             }
 
             var table, rows, switching, i, x, y, shouldSwitch;
