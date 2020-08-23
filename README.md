@@ -32,7 +32,12 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[product-screenshot](https://raw.githubusercontent.com/geforce6t/fantasy-premiere-league/master/screenshots/chosenteam.JPG)
+<img src="https://raw.githubusercontent.com/geforce6t/fantasy-premiere-league/master/screenshots/chosenteam.JPG" width="750" alt="accessibility text">
+<img src="https://raw.githubusercontent.com/geforce6t/fantasy-premiere-league/master/screenshots/dashboard.JPG" width="750" alt="accessibility text">
+<img src="https://raw.githubusercontent.com/geforce6t/fantasy-premiere-league/master/screenshots/dashboard2.JPG" width="750" alt="accessibility text">
+<img src="https://raw.githubusercontent.com/geforce6t/fantasy-premiere-league/master/screenshots/goal.JPG" width="750" alt="accessibility text">
+<img src="https://raw.githubusercontent.com/geforce6t/fantasy-premiere-league/master/screenshots/matchdaylive.JPG" width="750" alt="accessibility text">
+<img src="https://raw.githubusercontent.com/geforce6t/fantasy-premiere-league/master/screenshots/transfer.JPG" width="750" alt="accessibility text">
 
 This is a simple project on the concept of simulation for playing and enjoying football matches. 
 
