@@ -25,7 +25,7 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" id="transfer" aria-disabled="true">TRANSFER FEE <%= user.transfer %></a>
+                <a name="" id="" class="btn btn-primary" href="#" role="button" onclick="$('.filter').toggle()">FILTER</a>
             </li>
         </ul>
         <div class="form-inline my-2 my-lg-0">
@@ -34,7 +34,15 @@
         </div>
     </div>
 </nav>
-
+<center>
+    <div style="color: whitesmoke;" class="filter">
+        OV_RATING
+        <input type="number" class="col-lg-1 m-2" name="val1" id="val1" min="0" max="100" value="0">
+        <input type="number" class="col-lg-1 m-2" name="val2" id="val2" min="0" max="100" value="100">
+        <br>
+        <input name="" id="" style="background-color: #fb2950;" class="btn btn-primary" onclick="test()" type="button" value="FILTER">
+    </div>
+</center>
 
 
 <p class="text-center mt-2 mb-4 title">
@@ -42,71 +50,62 @@
 
 </p>
 <%  for (x=0; x <1000 ; x++) { %>
-    <% if ( player[x].Price != '0') { %>
 
-        <div class="player-card card text-center col-md-3 d-inline-block mt-5" style="background-image: url(https://media.futview.com/common/cards/fifa20/sbc_special%402x.png);">
-            <b><%= player[x].Name %></b><br>
-            <hr>
-            <div class="cont"> Rating
-                <%= player[x].Rating %><br>
-                    <%= player[x].Club %><br>
-                        <%= player[x].Position %>
-            </div>
-            <hr> <br> Passing
-            <%= player[x].Passing %><br> Defending
-                <%= player[x].Defending %><br> Physical
-                    <%= player[x].Phyiscality %><br> Price
-                        <%= player[x].Price %>
 
-                            <form action="" method="post">
-                                <input type="text" name="name" value="<%= player[x].Name %>" style="display: none;">
-                                <input type="text" name="rating" value="<%= player[x].Rating %>" style="display: none;">
-                                <input type="text" name="position" value="<%= player[x].Position %>" style="display: none;">
-                                <input type="text" name="shooting" value="<%= player[x].Shooting %>" style="display: none;">
-                                <input type="text" name="dribbling" value="<%= player[x].Dribbling %>" style="display: none;">
-                                <input type="text" name="defending" value="<%= player[x].Defending %>" style="display: none;">
-                                <input type="text" name="physical" value="<%= player[x].Phyiscality %>" style="display: none;">
-                                <input type="text" name="passing" value="<%= player[x].Passing %>" style="display: none;">
-                                <input type="text" name="club" value="<%= player[x].Club %>" style="display: none;">
-                                <input type="text" name="country" value="<%= player[x].Country %>" style="display: none;">
-                                <input type="text" name="popularity" value="<%= player[x].Popularity %>" style="display: none;">
-                                <input type="text" name="price" value="<%= player[x].Price %>" style="display: none;">
-                                <input type="text" name="user" value="<%= user.name %>" style="display: none;">
-                                <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#ara<%= x %>" style="border-radius: 30%;background-color:rgb(214, 79, 16);">BUY</button>
-                            </form>
-
-                            <div class="modal fade" id="ara<%= x %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content" style="background-image: url(https://www.gamesatlas.com/igallery/301-400/PES2020_BayernMunich_Stadium_AllianzArena_3-321-1080.jpg);background-size: cover;background-position-x: right;">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">
-                                                <p class="player">Signing Completed!!!</p>
-                                            </h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                          </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <p class="player">
-                                                <%= player[x].Name %> SIGNS FOR
-                                                    <%= user.name %>!!! FOR A TOTAL OF
-                                                        <%= player[x].Price %>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
+    <div id="gk<%= x %>" class="player-card card text-center col-md-3 mt-5" style="background-image: url(https://media.futview.com/common/cards/fifa20/sbc_special%402x.png);">
+        <b><%= player[x].Name %></b><br>
+        <hr>
+        <div class="cont">
+            <p style="display: inline;">Rating</p>
+            <p id="gk_Rating<%= x %>" style="display: inline;">
+                <%= player[x].Rating %>
+            </p><br>
+            <%= player[x].Club %><br>
+                <%= player[x].Position %>
         </div>
-        <% } %>
-            <% } %>
-                <div style="position: fixed;" class="theone">
-                    BUDGET <br>
-                    <%= user.transfer %> <br>
-                        <a href="/dashboard"><i class="fa fa-home" aria-hidden="true"></i></a>
-                </div>
-                <script>
-                    function search(string) {
-                        window.find(string);
+        <hr> <br> Passing
+        <%= player[x].Passing %><br> Defending
+            <%= player[x].Defending %><br> Physical
+                <%= player[x].Phyiscality %><br> Price
+                    <%= player[x].Price %>
+
+                        <form action="" onSubmit="return confirm('Do you want to buy this player?') " method="post">
+                            <input type="text" name="name" value="<%= player[x].Name %>" style="display: none;">
+                            <input type="text" name="rating" value="<%= player[x].Rating %>" style="display: none;">
+                            <input type="text" name="position" value="<%= player[x].Position %>" style="display: none;">
+                            <input type="text" name="shooting" value="<%= player[x].Shooting %>" style="display: none;">
+                            <input type="text" name="dribbling" value="<%= player[x].Dribbling %>" style="display: none;">
+                            <input type="text" name="defending" value="<%= player[x].Defending %>" style="display: none;">
+                            <input type="text" name="physical" value="<%= player[x].Phyiscality %>" style="display: none;">
+                            <input type="text" name="passing" value="<%= player[x].Passing %>" style="display: none;">
+                            <input type="text" name="club" value="<%= player[x].Club %>" style="display: none;">
+                            <input type="text" name="country" value="<%= player[x].Country %>" style="display: none;">
+                            <input type="text" name="popularity" value="<%= player[x].Popularity %>" style="display: none;">
+                            <input type="text" name="price" value="<%= player[x].Price %>" style="display: none;">
+                            <input type="text" name="user" value="<%= user.name %>" style="display: none;">
+                            <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#ara<%= x %>" style="border-radius: 30%;background-color:rgb(214, 79, 16);">BUY</button>
+                        </form>
+
+    </div>
+
+    <% } %>
+        <div style="position: fixed;" class="theone">
+            BUDGET <br>
+            <%= user.transfer %> <br>
+                <a href="/dashboard"><i class="fa fa-home" aria-hidden="true"></i></a>
+        </div>
+        <script>
+            function search(string) {
+                window.find(string);
+            }
+
+            function test() {
+                for (x = 0; x < 1000; x++) {
+                    if (+document.getElementById(`gk_Rating${x}`).innerHTML.trim() >= $('#val1').val() && +document.getElementById(`gk_Rating${x}`).innerHTML.trim() <= $('#val2').val()) {
+                        document.getElementById(`gk${x}`).style.display = 'inline-block';
+                    } else {
+                        document.getElementById(`gk${x}`).style.display = 'none';
                     }
-                </script>
+                }
+            }
+        </script>

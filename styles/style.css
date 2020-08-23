@@ -83,6 +83,7 @@ body {
 }
 
 .player-card {
+    display: inline-block;
     margin-left: 6%;
     padding: 3%;
     border: transparent;
@@ -333,6 +334,10 @@ hr {
 
 thead {
     font-size: xx-large;
+}
+
+.filter {
+    display: none;
 }
 
 .tagged {
