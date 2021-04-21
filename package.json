@@ -5,7 +5,8 @@
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "node index"
+        "start": "node index",
+        "fmt": "prettier --print-width 120 --jsx-bracket-same-line --no-bracket-spacing --single-quote --tab-width 4 --use-tabs --write \"**/*.js\""
     },
     "repository": {
         "type": "git",
@@ -33,6 +34,7 @@
         "passport-local": "^1.0.0"
     },
     "devDependencies": {
-        "nodemon": "^2.0.4"
+        "nodemon": "^2.0.4",
+        "prettier": "2.2.1"
     }
 }
